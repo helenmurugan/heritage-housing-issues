@@ -1,54 +1,6 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Codeanywhere Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Codeanywhere Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Codeanywhere Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use. 
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into <a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">CodeAnywhere</a> with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and <code>pip3 install -r requirements.txt</code>
-
-1. In the terminal type <code>pip3 install jupyter</code>
-
-1. In the terminal type <code>jupyter notebook --NotebookApp.token='' --NotebookApp.password=''</code> to start the jupyter server.
-
-1. Open port 8888 preview or browser
-
-1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
-
-1. Click the button Not Trusted and choose Trust.
-
-Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.12 as installed by our template. To confirm this you can use <code>! python --version</code> in a notebook code cell.
-
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In your Cloud IDE, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
+# Heritage Housing Issues
+## Introduction
+## CRISP-DM Workflow
 ## Dataset Content
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace. 
 * The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
@@ -81,9 +33,6 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 |SalePrice|Sale Price|34900 - 755000|
 
 
-
-
-
 ## Business Requirements
 As a good friend, you are requested by your friend, who has received an inheritance from a deceased great-grandfather located in Ames, Iowa, to  help in maximising the sales price for the inherited properties.
 
@@ -97,7 +46,7 @@ Although your friend has an excellent understanding of property prices in her ow
 * List here your project hypothesis(es) and how you envision validating it (them).
 
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
+## The Rationale to map the business requirements to the Data Visualisations and ML tasks
 * List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
 
 
@@ -106,13 +55,55 @@ Although your friend has an excellent understanding of property prices in her ow
 
 
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
+The project will be built using a Streamlit dashboard and will contain the following pages:
 
+### Page 1: Project Summary
+* Statement of the project purpose.
+* Project terms and jargon.
+* Brief description of the data set.
+* Statement of business requirements.
+* Links to further information.
+
+Project Summary Page Screenshots
+
+### Page 2: Sale Price Correlation Analysis
+This page will satisfy the first business requirement of discovering how the house attributes correlate with the sale price. It includes checkboxes so the client has the ability to display the following visual guides to the data features:
+
+* A sample of data from the data set.
+* Pearson and Spearman correlation plots between the features and the sale price.
+* Histogram and scatterplots of the most important predictive features.
+* Predictive Power Score Analysis.
+
+Correlation Analysis Screenshots
+### Page 3: Sale Price Prediction
+This page will satisfy the second business requirement or predicting house price sales. It will include:
+
+* Input feature of property attributes to produce a prediction on the sale price.
+* Display of the predicted sale price.
+* Feature to predict the sale prices of the clients specific data in relation to her inherited properties.
+
+Sale Price Prediction Screenshots
+
+### Page 4: Hypothesis and Validation
+
+* Description of how project hypotheses were validated.
+
+Hypothesis and Validation Screenshots
+
+### Page 5: Machine Learning Model
+
+* Description of the ML pipeline used to train the model.
+* Information on feature importance.
+* Evaluation of the pipeline performance.
+
+ML Model: Price Prediction Screenshots
+
+# PEP8 Compliance Testing 
+The python code from the app_pages files was passed through the CI Python Linter. Code now passes with no errors.
 
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+
 
 ## Deployment
 ### Heroku
@@ -128,9 +119,14 @@ Although your friend has an excellent understanding of property prices in her ow
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+## Main Technologies
+* GitHub - used to create the project repository and for version control.
+* Gitpod - integrated development environment used to build this project.
+* Jupyter Notebooks - used for data analysis and ML pipeline development and evaluation.
+* Kaggle - open source data used in this project.
+* Streamlit - used to develop the user dashboard.
 
+## Main Data Analysis and Machine Learning Libraries
 
 ## Credits 
 
