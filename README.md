@@ -103,6 +103,11 @@ The python code from the app_pages files was passed through the CI Python Linter
 
 
 ## Unfixed Bugs
+When evaluating missing data in notebook 3, the og df had to be reloaded in order for missing data to be evaluated. The label encoder must encode the variables in a way that they no longer have missing data.
+
+## User Warnings
+During correlation and PPS analysis, the following warning was generated. A correlation is a measure of the strength of association between two variables. The warning is just a caution that the data may not be sufficient to show strong correlations In this case, the warning was ignored.
+(image of n_splits warning saved on desktop)
 
 
 ## Deployment
@@ -127,6 +132,8 @@ The python code from the app_pages files was passed through the CI Python Linter
 * Streamlit - used to develop the user dashboard.
 
 ## Main Data Analysis and Machine Learning Libraries
+* seaborn - a library used to plot heatmaps for correlation and predictive power score analysis.
+* pandas profiling - a library used to generate reports and calculate PPS matrix.
 
 ## Credits 
 
