@@ -132,10 +132,13 @@ During correlation and PPS analysis, the following warning was generated. A corr
 * Streamlit - used to develop the user dashboard.
 
 ## Main Data Analysis and Machine Learning Libraries
-* seaborn - a python library used for visualizing data from Pandas data frames and arrays. Used to plot heatmaps for correlation and predictive power score analysis.
-* pandas_profiling - a library used to generate reports with statistical analysis of data. Used to calculate PPS matrix.
-* ydata_profiling - used to generate the pandas profile reports.
+* os - module in python that provides a way of using operating system dependent functionality.
+* pandas - a library used to generate reports with statistical analysis of data.
+* sci-kit learn - modules for pre-processing data eg. LabelEncoder.
 * matplotlib - a library for creating static and interactive visualizations in Python.
+* seaborn - a python library used for visualizing data from Pandas data frames and arrays. Used to plot heatmaps for correlation and predictive power score analysis.
+* ydata_profiling - used to generate the pandas profile reports.
+
 * feature_engine - a library that provides a set of tools for feature engineering in Python.
 
 ## Credits 
