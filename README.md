@@ -138,8 +138,10 @@ During correlation and PPS analysis, the following warning was generated. A corr
 * matplotlib - a library for creating static and interactive visualizations in Python.
 * seaborn - a python library used for visualizing data from Pandas data frames and arrays. Used to plot heatmaps for correlation and predictive power score analysis.
 * ydata_profiling - used to generate the pandas profile reports.
-
+* numpy - a library in Python that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. 
 * feature_engine - a library that provides a set of tools for feature engineering in Python.
+* scipy - 
+* warnings -  
 
 ## Credits 
 
