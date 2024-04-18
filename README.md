@@ -141,7 +141,8 @@ During correlation and PPS analysis, the following warning was generated. A corr
 * numpy - a library in Python that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. 
 * feature_engine - a library that provides a set of tools for feature engineering in Python.
 * scipy - 
-* warnings -  
+* warnings - provides functions to issue warning alerting users to potential issues.
+* sklearn.pipeline - a module that provides a flexible way to chain together multiple data processing steps into a single object.  
 
 ## Credits 
 
