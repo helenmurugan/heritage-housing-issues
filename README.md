@@ -1,8 +1,61 @@
 # Heritage Housing Issues
+Data Correlation and Predictive Modelling Study<br>
+Developed by [Helen Murugan](https://github.com/helenmurugan)
+
+[!Image](filepath)
+
+Live Site: [Heritage Housing Sale Price Predictor](link)<br>
+Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
+
+## Contents
+* [Introduction](#introduction)
+* [CRISP-DM Workflow](#crisp-dm-workflow)
+* [Datset Content](#dataset-content)
+* [Business Requirements](#business-requirements)
+* [Hypothesis and how to Validate](#hypothesis-and-how-to-validate)
+* [Rationale to Map Business Requirements to the Data Visualizations and ML tasks](#rationale-to-map-business-requirements-to-the-data-visualizations-and-ml-tasks)
+* [ML Business Case](#ml-business-case)
+* [Dashboard Design](#dashboard-design)
+    * [Page 1: Project Summary](#page-1-project-summary)
+    * [Page 2: Sale Price Correlation Analysis](#page-2-sale-price-correlation-analysis)
+    * [Page 3: Sale Price Prediction](#page-3-sale-price-prediction)
+    * [Page 4: Hypothesis and Validation](#page-4-hypothesis-and-validation)
+    * [Page 5: Machine Learning Model](#page-4-hypothesis-and-validation)
+* [PEP8 Compliance Testing](#pep8-compliance-testing)
+* [Unfixed Bugs](#unfixed-bugs)
+* [User Warnings](#user-warnings)
+* [Deployment](#deployment)
+    * [Heroku](#heroku)
+* [Main Technologies](#main-technologies)
+* [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+* [Credits](#credits)
+    * [Content](#content)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
+
 ## Introduction
+Heritage Housing Issues includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and sale prices for properties in Ames, Iowa. Additionally, the project features a machine learning model that enables clients and other users to predict property sale prices based on various house attributes. The project utilizes a Kaggle real estate dataset as its input.
+
 ## CRISP-DM Workflow
+The Cross Industry Standard Process for Data Mining (CRISP-DM) was followed during development:
+
+* <b>EPIC 1 - Business Understanding</b>: This phase entails extensive discussions with the client to understand their expectations and develop acceptance criteria, as outlined in the Business Requirements section below.
+
+* <b>EPIC 2 - Data Understanding</b>: The identification and understanding of data necessary to fulfill the business requirements are crucial. An initial statistical analysis is conducted to determine if the available data are sufficient. This task is performed in the Data Cleaning Notebook.
+
+* <b>EPIC 3 - Data Preparation</b>: Data cleaning, imputation, and feature engineering are carried out in this phase, ensuring the most effective and accurate modeling outcome. This step takes place in the Data Cleaning and Feature Engineering Notebooks.
+
+* <b>EPIC 4 - Modelling</b>: Model algorithms are determined, and the data is split into train and test sets. Various algorithms are validated and tuned using hyperparameter search on the train sets. This phase is executed in the Modelling_and_Evaluation Notebook.
+
+* <b>EPIC 5 - Evaluation</b>: Model performance is evaluated using the test set, matching the results with the business acceptance criteria. This evaluation process occurs in the Modelling_and_Evaluation Notebook.
+
+* <b>EPIC 6 - Deployment</b>: The streamlit app, developed to meet the business requirements in collaboration with the client, is deployed online. The deployment process is described in the Deployment section below.
+
+These steps align neatly with the Agile development process, with the ability to move back and forth between stages/epics as new insights are gained and previous steps are refined. Ultimately, the project aims to deliver a product that satisfies the client's requirements.
+
+
 ## Dataset Content
-* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace. 
+* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data).
 * The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
 
 |Variable|Meaning|Range|
@@ -42,12 +95,45 @@ Although your friend has an excellent understanding of property prices in her ow
 * 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them).
+## Hypothesis and how to Validate
+In alignment with the business requirements and through discussions with the client, the following hypotheses have been formulated:
+
+<b>Correlation between Property Sale Price and Features:</b> 
+* We hypothesise that a property's sale price strongly correlates with a subset of features in the dataset. Our aim is to validate this hypothesis through a correlation study of the dataset.
+* The extensive correlation study conducted and displayed on the app confirms this hypothesis.
+
+<b>Strong Correlation with Common Features:</b>
+* We hypothesize that the correlation is strongest with common features of a home, such as total square footage, overall condition, and overall quality. Our aim is to validate this hypothesis through a correlation study.
+* The extensive correlation study confirms that the five features with the strongest correlation to Sale Price are: 'OverallQual', 'GrLivArea', 'GarageArea', 'TotalBsmtSF', 'YearBuilt', and '1stFlrSF'. These features are common to the majority of homes.
+
+<b> Predictive Model Performance:</b> 
+* We hypothesize that we can predict a sale price with an R2 value of at least 0.8. To validate this, we propose developing a predictive model, optimizing it using data modeling tools, and evaluating it based on the required criteria.
+
+The model evaluation has validated this hypothesis, achieving R2 values of ... for both train and test sets.
 
 
-## The Rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+## Rationale to Map Business Requirements to the Data Visualizations and ML tasks
+<b>Business Requirement 1: Data Visualization and Correlation Study</b>
+
+* Inspect the dataset to understand its relevance to property sale prices in Ames, Iowa.
+* Conduct a correlation study (Pearson and Spearman) to analyze the relationships between variables and sale prices.
+* Visualise the most important and relevant data against sale prices to gain insights.
+
+<b>Business Requirement 2: Regression and Data Analysis</b>
+
+* Develop a regression model with sale price as the target value to predict home prices in Ames, Iowa.</b>
+* Optimize and evaluate the regression model to achieve an R2 value of 0.8 or higher.
+
+<b>Business Requirement 3: Online App and Deployment</b>
+
+* Build a Streamlit app showcasing data analysis, visualization, and a feature for predicting sale prices for properties in Ames, Iowa.
+* Deploy the app using Heroku to make it accessible to the client and other users.
+
+
+
+
+
+
 
 
 ## ML Business Case
@@ -161,8 +247,9 @@ During correlation and PPS analysis, the following warning was generated. A corr
 - The photos used on the home and sign-up page are from This Open Source site
 - The images used for the gallery page were taken from this other open-source site
 
+## Acknowledgements
+* Precious Ijege
+* CI peers
+* Arul Murugan
 
-
-## Acknowledgements (optional)
-* In case you would like to thank the people that provided support through this project.
 
