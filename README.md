@@ -99,15 +99,20 @@ Although your friend has an excellent understanding of property prices in her ow
 In alignment with the business requirements and through discussions with the client, the following hypotheses have been formulated:
 
 <b>Correlation between Property Sale Price and Features:</b> 
-* We hypothesise that a property's sale price strongly correlates with a subset of features in the dataset. Our aim is to validate this hypothesis through a correlation study of the dataset.
+* We hypothesise that a property's sale price strongly correlates with a subset of features in the dataset. 
+How to Validate: Our aim is to validate this hypothesis through a correlation study of the dataset.
 * The extensive correlation study conducted and displayed on the app confirms this hypothesis.
 
 <b>Strong Correlation with Common Features:</b>
-* We hypothesize that the correlation is strongest with common features of a home, such as total square footage, overall condition, and overall quality. Our aim is to validate this hypothesis through a correlation study.
+* We hypothesize that the correlation is strongest with common features of a home, such as total square footage, overall condition, and overall quality. 
+
+How to Validate: Our aim is to validate this hypothesis through a correlation study.
 * The extensive correlation study confirms that the five features with the strongest correlation to Sale Price are: 'OverallQual', 'GrLivArea', 'GarageArea', 'TotalBsmtSF', 'YearBuilt', and '1stFlrSF'. These features are common to the majority of homes.
 
 <b> Predictive Model Performance:</b> 
-* We hypothesize that we can predict a sale price with an R2 value of at least 0.8. To validate this, we propose developing a predictive model, optimizing it using data modeling tools, and evaluating it based on the required criteria.
+* We hypothesize that we can predict a sale price with an R2 value of at least 0.8.
+
+How to Validate:  To validate this, we propose developing a predictive model, optimizing it using data modeling tools, and evaluating it based on the required criteria.
 
 The model evaluation has validated this hypothesis, achieving R2 values of ... for both train and test sets.
 
@@ -115,30 +120,25 @@ The model evaluation has validated this hypothesis, achieving R2 values of ... f
 ## Rationale to Map Business Requirements to the Data Visualizations and ML tasks
 <b>Business Requirement 1: Data Visualization and Correlation Study</b>
 
-* Inspect the dataset to understand its relevance to property sale prices in Ames, Iowa.
-* Conduct a correlation study (Pearson and Spearman) to analyze the relationships between variables and sale prices.
-* Visualise the most important and relevant data against sale prices to gain insights.
+* As a client, I 
 
 <b>Business Requirement 2: Regression and Data Analysis</b>
 
-* Develop a regression model with sale price as the target value to predict home prices in Ames, Iowa.</b>
-* Optimize and evaluate the regression model to achieve an R2 value of 0.8 or higher.
+* As a client, I 
+clearly indicate at least one machine learning task present in the project.
 
 <b>Business Requirement 3: Online App and Deployment</b>
 
-* Build a Streamlit app showcasing data analysis, visualization, and a feature for predicting sale prices for properties in Ames, Iowa.
-* Deploy the app using Heroku to make it accessible to the client and other users.
-
-
-
-
-
-
+* As a client, I 
 
 
 ## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
-
+* We want an ML model to predict..
+* Our ideal outcome is...
+* Our model success metrics are....
+* The output is defined..
+* Heuristics...
+* The training data....
 
 ## Dashboard Design
 The project will be built using a Streamlit dashboard and will contain the following pages:
