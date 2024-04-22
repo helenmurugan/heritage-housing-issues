@@ -12,7 +12,7 @@ Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
 * [CRISP-DM Workflow](#crisp-dm-workflow)
 * [Datset Content](#dataset-content)
 * [Business Requirements](#business-requirements)
-* [Hypothesis and how to Validate](#hypothesis-and-how-to-validate)
+* [Hypotheses and Validation](#hypothesis-and-validation)
 * [Rationale to Map Business Requirements to the Data Visualizations and ML tasks](#rationale-to-map-business-requirements-to-the-data-visualizations-and-ml-tasks)
 * [ML Business Case](#ml-business-case)
 * [Dashboard Design](#dashboard-design)
@@ -96,26 +96,62 @@ Although your friend has an excellent understanding of property prices in her ow
 * 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
-## Hypothesis and how to Validate
-In alignment with the business requirements and through discussions with the client, the following hypotheses have been formulated:
+## Hypotheses and Validation
+Taking into consideration the business requirements, knowledge of the dataset, nad existing knowledge and/or assumptions on house sale prices in alternative locations, the follwoing hypotheses have been formulated:
 
-<b>Correlation between Property Sale Price and Features:</b> 
-* We hypothesise that a property's sale price strongly correlates with a subset of features in the dataset. 
-How to Validate: Our aim is to validate this hypothesis through a correlation study of the dataset.
-* The extensive correlation study conducted and displayed on the app confirms this hypothesis.
+* <b>1: Size Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The size of a property does not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> The size of a property is positively correlated to sale price.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
 
-<b>Strong Correlation with Common Features:</b>
-* We hypothesize that the correlation is strongest with common features of a home, such as total square footage, overall condition, and overall quality. 
+* <b>2: Condition Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The condition of a property does not affect sale price
+    * <b>Alternative Hypothesis (H1):</b> The condition of a property is positively correlated to sale price.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
 
-How to Validate: Our aim is to validate this hypothesis through a correlation study.
-* The extensive correlation study confirms that the five features with the strongest correlation to Sale Price are: 'OverallQual', 'GrLivArea', 'GarageArea', 'TotalBsmtSF', 'YearBuilt', and '1stFlrSF'. These features are common to the majority of homes.
+* <b>3: Year Built Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The year of build does not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> The year of build does affect sale price. A subhypothesis is that properties built in recent years would achieve a higher sales price.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
 
-<b> Predictive Model Performance:</b> 
-* We hypothesize that we can predict a sale price with an R2 value of at least 0.8.
+* <b>4: Storey Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The presence of a second storey/floor does not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> Properties with a second storey/floor achieve higher sale price.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
 
-How to Validate:  To validate this, we propose developing a predictive model, optimizing it using data modeling tools, and evaluating it based on the required criteria.
+* <b>5: Garage Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The presence of a garage does not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> Properties with garages achieve higher sale prices. 
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
 
-The model evaluation has validated this hypothesis, achieving R2 values of ... for both train and test sets.
+* <b>6: Basement Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The presence of a basement does not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> Properties with basements achieve higher sale prices.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
+
+* <b>7: Lot Size Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The lot size of a property does not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> The lot size of a property is positively correlated to sale price.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
+
+* <b>8: Important Features Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The size of a property, lot size, and overall condition are not within the most important features in predicting sale price.
+    * <b>Alternative Hypothesis (H1):</b> The size of a property, lot size and overall condition are expected to be included in the most important features in predicting sale price.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
+
+* <b>9: Sale Price Prediction Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> We are not able to predict a sale price with an R2 value of at least 0.75 based on important features that have been identified through machine learning modelling.
+    * <b>Alternative Hypothesis (H1):</b> We are able to predict a sale price with an R2 value of at least 0.75, based on important features that have been identified through machine learning modelling.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
 
 
 ## Rationale to Map Business Requirements to the Data Visualizations and ML tasks
