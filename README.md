@@ -248,25 +248,22 @@ During correlation and PPS analysis, the following warning was generated. A corr
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
 ## Main Technologies
-* GitHub - used to create the project repository and for version control.
-* Gitpod - integrated development environment used to build this project.
-* Jupyter Notebooks - used for data analysis and ML pipeline development and evaluation.
-* Kaggle - open source data used in this project.
-* Streamlit - used to develop the user dashboard.
+* <b>GitHub</b> - a web-based platform and version control system that was utilised for hosting and managing the project repository.
+* <b>Gitpod</b> - a cloud-based integrated development environment used to create this project.
+* <b>Jupyter Notebooks</b> - interactive computing environments that allow users to create and share documents containing code, visualisations and text. Jupyter Notebooks were used throughout this project for data analysis, and ML pipeline development and evaluation.
+* <b>Kaggle</b> - an online platform with open source data, used as the data source for this project.
 
 ## Main Data Analysis and Machine Learning Libraries
-* os - module in python that provides a way of using operating system dependent functionality.
-* pandas - a library used to generate reports with statistical analysis of data.
-* sci-kit learn - modules for pre-processing data eg. LabelEncoder.
-* matplotlib - a library for creating static and interactive visualizations in Python.
-* seaborn - a python library used for visualizing data from Pandas data frames and arrays. Used to plot heatmaps for correlation and predictive power score analysis.
-* ydata_profiling - used to generate the pandas profile reports.
-* numpy - a library in Python that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. 
-* feature_engine - a library that provides a set of tools for feature engineering in Python.
-* scipy - 
-* warnings - provides functions to issue warning alerting users to potential issues.
-* sklearn.pipeline - a module that provides a flexible way to chain together multiple data processing steps into a single object.  
-* joblib -  a library primarily used for saving and loading Python objects.
+* <b>numpy</b> - a library that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. Numpy was used in the Data Cleaning Notebook to create arrays and masks for filtering data.
+* <b>pandas</b> - a library with easy-to-use data structures and functions. Throuughouit this project, pandas was utilised for working with dataframes, selecting and displaying key features of the data, creating reports and providing insights on data.
+* <b>matplotlib</b> - a library for creating static and interactive visualizations in Python. Matplotlib was used in the Data Visualisations and Feature Engineering Notebooks for displaying plots eg. scatterplots, bar plots and heatmaps.
+* <b>seaborn</b> - a library used for visualising data from pandas dataframes and arrays. Seaborn was utilised in the Feature Engineering Notebook to plot heatmaps for correlation and predictive power score analysis.
+* <b>ydata_profiling</b> - a package for data profiling, that automates and standardises the generation of detailed reports, complete with statistics and visualizations. In Data Cleaning and Feature Engineering Notebooks it was utilised to generate pandas profile reports with tremendous insights on the data.
+* <b>feature_engine</b> - a library that provides a set of tools for feature engineering. It was used in the Feature Engineering Notebook for data transformation such as SmartCorrelatedSelection, OrdinalEncoder and Winsorizer.
+* <b>ppscore</b> - predictive power score is a statistical metric used to quantify the predictive power of one feature with respect to another feature in a dataset. This tool was utilised in the Data Cleaning Notebook to assess correlation levels between house attributes.
+* <b>streamlit</b> - a library used for creating interactive web applications for data science and machione learning projects. Streamlit was utilised for creating the user dashboard.
+* <b>scikit-learn</b> - a library that provides a range algorithms for machine learning models. Scikit-learn was utilised in the Modelling and Evaluation Notebook for grid search cross validation and hyperparameter optimisation.
+* <b>xgboost</b> - eXtreme Gradient Boosting is a library that provides gradient boosting algorithms for machine learning tasks. Xgboost was utilised in the Modelling and Evaluation Notebook for for grid search cross validation.
 
 ## Credits 
 
