@@ -34,22 +34,23 @@ Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
     * [Acknowledgements](#acknowledgements)
 
 ## Introduction
-Heritage Housing Issues includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and sale prices for properties in Ames, Iowa. Additionally, the project features a machine learning model that enables clients and other users to predict property sale prices based on various house attributes. The project utilizes a Kaggle real estate dataset as its input.
+Heritage Housing Issues utilises conventional data analysis techniques and machine learning to answer a clients business requirements relating to property sales in Ames, Iowa, USA. It includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and property sale price.  The project also features a machine learning model that enables the client and other users to predict property sale prices based on various house attributes, through a dedicated web application. The project utilizes a Kaggle real estate dataset as its input. This dataset provides comprehensive data on house attributes and sale price in order to accurately answer a real-world business requirement. 
+
+Heritage Housing Issues is the fifth and final portfolio project for a Code Institute Diploma in Full Stack Software Development with Predictive Analytics specialisation.
 
 ## CRISP-DM Workflow
 The Cross Industry Standard Process for Data Mining (CRISP-DM) was followed during development:
 
-* <b>EPIC 1 - Business Understanding</b>: This phase entails extensive discussions with the client to understand their expectations and develop acceptance criteria, as outlined in the Business Requirements section below.
+* <b>EPIC 1 - Information gathering and data collection:</b> This stage involves understanding the business requirements (this involves extensive discussions with the client), identifying the data source(s), and collecting necessary data to support the project goals.
 
-* <b>EPIC 2 - Data Understanding</b>: The identification and understanding of data necessary to fulfill the business requirements are crucial. An initial statistical analysis is conducted to determine if the available data are sufficient. This task is performed in the Data Cleaning Notebook.
+* <b>EPIC 2 - Data visualization, cleaning, and preparation:</b> 
 
-* <b>EPIC 3 - Data Preparation</b>: Data cleaning, imputation, and feature engineering are carried out in this phase, ensuring the most effective and accurate modeling outcome. This step takes place in the Data Cleaning and Feature Engineering Notebooks.
+* <b>EPIC 3 - Model training, optimization and validation:</b>
 
-* <b>EPIC 4 - Modelling</b>: Model algorithms are determined, and the data is split into train and test sets. Various algorithms are validated and tuned using hyperparameter search on the train sets. This phase is executed in the Modelling_and_Evaluation Notebook.
+* <b>EPIC 4 - Dashboard planning, designing, and development:</b>
 
-* <b>EPIC 5 - Evaluation</b>: Model performance is evaluated using the test set, matching the results with the business acceptance criteria. This evaluation process occurs in the Modelling_and_Evaluation Notebook.
-
-* <b>EPIC 6 - Deployment</b>: The streamlit app, developed to meet the business requirements in collaboration with the client, is deployed online. The deployment process is described in the Deployment section below.
+* <b>EPIC 5 - Dashboard deployment and release.</b>: 
+ 
 
 These steps align neatly with the Agile development process, with the ability to move back and forth between stages/epics as new insights are gained and previous steps are refined. Ultimately, the project aims to deliver a product that satisfies the client's requirements.
 
