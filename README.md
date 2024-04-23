@@ -154,23 +154,32 @@ Taking into consideration the business requirements, knowledge of the dataset, n
     * <b>Validation:</b>
 
 
-## Rationale to Map Business Requirements to the Data Visualizations and ML tasks
-<b>Business Requirement 1: Data Visualization and Correlation Study</b>
+## Rationale to Map Business Requirements to the Data Visualisations and ML tasks
+<b>Business Requirement 1: Data Visualisation and Correlation Study</b>
 
-* As a client, I 
+* As a client, I want to perform an in-depth study of house records data in Ames, Iowa, in order to discover how the house attributes correlate to the sale price.
+* As a client, I want to perform a correlation study using both Pearson and Spearman methods, in order to gain deeper insights into the multicollinearity relationships between variables and sale prices.
+* As a client, I want to visualise the main variables plotted against sale price, in order to gain deeper insights on how house attributes correlate to sale price.
+* As a client, I want to visualise house record data in a variety of ways such as heatmaps, scatterplots, bar plots etc, in order to maximise my understanding of the complexities of the house sales market in teh area.
+* As a client, I want the results of this data study to feed directly into the development of a machine learning model, in order to predict house sale prices in Ames, Iowa.
 
-<b>Business Requirement 2: Regression and Data Analysis</b>
+<b>Business Requirement 2: Sale Price Prediction</b>
 
-* As a client, I 
-clearly indicate at least one machine learning task present in the project.
+* As a client, I want to create a machine learning model that can accurately predict property sale prices based on house attributes, in order to maximise the sale price of my four inherited houses.
+* As a client, I want to identify the most important house features to train an ML model on, in order to achieve the most accurate predictions.
+* As a client, I want the ML model inputs to be house attributes and the output to be sale price, in order to easily predict sale prices for my four inherited houses.
+* As a client, I want a regressor model to be utilised to predict sale price with an R2 score of at least 0.75 on the train set as well as the test set, in order to measure the performance of the model.
+* As a client, I want the model to be optimimised based on testing a selection of algorithms and hyperparameters, in order to achieve the most accurate results for sale price prediction. 
 
-<b>Business Requirement 3: Online App and Deployment</b>
+<b>Business Requirement 3: Online App Deployment</b>
 
-* As a client, I 
+* As a client, I want an online dashboard which follows the principles of good UX design, in order to easily and intuitively navigate around the app.
+* As a client, I want to input only the most important features relating to house attributes into my adshboard, in order to quickly and accurately receive a sale price prediction from the ML model.
+* As a client, I want the data visualisations to be displayed in the app, in order to allow myself and other users to quickly gain insights into how house sale prices are affected by house attributes.
 
 
 ## ML Business Case
-* We want an ML model to predict..
+* We want an ML model to predict property sale prices in Ames, Iowa based on 
 * Our ideal outcome is...
 * Our model success metrics are....
 * The output is defined..
@@ -221,7 +230,7 @@ Hypothesis and Validation Screenshots
 
 ML Model: Price Prediction Screenshots
 
-# PEP8 Compliance Testing 
+## PEP8 Compliance Testing 
 The python code from the app_pages files was passed through the CI Python Linter. Code now passes with no errors.
 
 
@@ -258,7 +267,7 @@ During correlation and PPS analysis, the following warning was generated. A corr
 * <b>pandas</b> - a library with easy-to-use data structures and functions. Throuughouit this project, pandas was utilised for working with dataframes, selecting and displaying key features of the data, creating reports and providing insights on data.
 * <b>matplotlib</b> - a library for creating static and interactive visualizations in Python. Matplotlib was used in the Data Visualisations and Feature Engineering Notebooks for displaying plots eg. scatterplots, bar plots and heatmaps.
 * <b>seaborn</b> - a library used for visualising data from pandas dataframes and arrays. Seaborn was utilised in the Feature Engineering Notebook to plot heatmaps for correlation and predictive power score analysis.
-* <b>ydata_profiling</b> - a package for data profiling, that automates and standardises the generation of detailed reports, complete with statistics and visualizations. In Data Cleaning and Feature Engineering Notebooks it was utilised to generate pandas profile reports with tremendous insights on the data.
+* <b>ydata_profiling</b> - a package for data profiling, that automates and standardises the generation of detailed reports, complete with statistics and visualisations. In Data Cleaning and Feature Engineering Notebooks it was utilised to generate pandas profile reports with tremendous insights on the data.
 * <b>feature_engine</b> - a library that provides a set of tools for feature engineering. It was used in the Feature Engineering Notebook for data transformation such as SmartCorrelatedSelection, OrdinalEncoder and Winsorizer.
 * <b>ppscore</b> - predictive power score is a statistical metric used to quantify the predictive power of one feature with respect to another feature in a dataset. This tool was utilised in the Data Cleaning Notebook to assess correlation levels between house attributes.
 * <b>streamlit</b> - a library used for creating interactive web applications for data science and machione learning projects. Streamlit was utilised for creating the user dashboard.
