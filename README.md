@@ -153,6 +153,8 @@ Taking into consideration the business requirements, knowledge of the dataset, n
     * <b>How to Validate:</b>
     * <b>Validation:</b>
 
+* <b>Actions resulting from Hypotheses Validation</b>
+
 
 ## Rationale to Map Business Requirements to the Data Visualisations and ML tasks
 <b>Business Requirement 1: Data Visualisation and Correlation Study</b>
@@ -179,12 +181,24 @@ Taking into consideration the business requirements, knowledge of the dataset, n
 
 
 ## ML Business Case
-* We want an ML model to predict property sale prices in Ames, Iowa based on 
-* Our ideal outcome is...
-* Our model success metrics are....
-* The output is defined..
-* Heuristics...
-* The training data....
+* Our client is an individual with inherited properties in Ames, Iowa, who seeks to gain insights into the factors influencing house sale prices in the area. Additionally, the client wishes to predict the sale prices of their inherited properties and explore the potential sale prices of other houses in Ames, Iowa.
+
+* Our ideal outcome is to develop a predictive ML model that accurately estimates house sale prices based on various house attributes. The model will enable the client to make informed decisions regarding pricing strategies for their inherited properties and provide insights into the local real estate market in Ames, Iowa.
+
+* The model will use supervised learning techniques, where the label or target is a continuous numeric variable - SalePrice in US dollars. In this case, a regression model is appropriate to use. 
+
+* The training data for the development of the ML model is sourced from Kaggle. The dataset includes information on 24 house attributes, which are the variables for the ML modelling task (columns) and 1460 observations (rows). The training data will be refined through data pre-processing including data cleaning, exploratory data analysis and feature engineering. 
+
+    * Data cleaning will be required to remove missing data and could includes techniques such as dropping variables, MeanMedianImputation and CategoricalImputation. 
+
+    * The aim of the Feature Engineering stage is to to provide quality data that a model can be trained on, by attempting to transform the data towards normal distribution, where possible. Techniques for feature engineering include Numerical Encoding, Categorical Encoding and SmartCorrelated Selection where certain variables can be dropped if they provide similar correlation to another variable. Additionally, techniques to handle outliers in the data will be explored, for example, using the Winsorizer method.
+
+* We will apply established heuristics to select appropriate machine learning algorithms and tune hyperparameters to optimise model performance. Grid search cross validation of known regressor models will be utilised to identify the algorithm that generalises best on unseen data, measured by R2 scores. Hyperparameter optimisation will be used to tune the model(s) to allow for the best possible performance.These heuristics will ensure that our model is built on sound principles and leverages industry best practices to achieve accurate predictions of house sale prices.
+
+* CRISP-DM workflow will be followed during development to maximise model performance. For example, data cleaning, feature engineering and feature selection can be revisited iteratively until we are satisfied with the model performance, taking into account the expectations agreed with the client.
+
+* Our success metric, as agreed with the client, is to achieve R2 scores of at least 0.75 for both train and test sets. Additionally, since this is a prediction model, we would aim for the difference between R2train and R2test to be less than 0.15 to ensure that our model generalises well on unseen data and does not significantly overfit or underfit the data.
+
 
 ## Dashboard Design
 The project will be built using a Streamlit dashboard and will contain the following pages:
@@ -281,14 +295,13 @@ During correlation and PPS analysis, the following warning was generated. A corr
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+### Code
+* Code Institute custom code was used for... and is referenced in the notebooks.
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open Source site
-- The images used for the gallery page were taken from this other open-source site
+* The photos used on the home and sign-up page are from This Open Source site
+* The images used for the gallery page were taken from this other open-source site
 
 ## Acknowledgements
 * Precious Ijege
