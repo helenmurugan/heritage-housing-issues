@@ -107,55 +107,60 @@ Taking into consideration the business requirements, knowledge of the dataset, n
     * <b>Action</b> Accept alternative hypothesis, sale price is positively and strongly correlated with the square footage of the first floor, garage, above garde living area and basement. However, the client should be informed that number of bedrooms, square footage of the second floor and basement are only weakly positively correlated to sale price.
 
 * <b>2: Condition Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The condition of a property does not affect sale price
-    * <b>Alternative Hypothesis (H1):</b> The condition of a property is positively correlated to sale price.
+    * <b>Null Hypothesis (H0):</b> The condition of a property does not have a strong positive correlation sale price
+    * <b>Alternative Hypothesis (H1):</b> The condition of a property has a strong positive correlation with sale price.
     * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels.
-    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that the Overall Condition of a property is only weakly correlated to sale price.
-    * <b>Action</b> Accept the null hypothesis. Overall condition of a property does not have a great impact on sale price. This may be an interesting insight for the client.
+    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that the 'OverallCond' of a property is only weakly correlated to sale price.
+    * <b>Action</b> Accept the null hypothesis. Overall condition of a property does not have a great impact on sale price. This may be an interesting insight for the client, as it challenges preconceptions about which features affect sale price.
 
 * <b>3: Year Built Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The year of build does not affect sale price.
-    * <b>Alternative Hypothesis (H1):</b> The year of build does affect sale price. A subhypothesis is that properties built in recent years would achieve a higher sales price.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
+    * <b>Null Hypothesis (H0):</b> The year of build does not have a strong positive correlation with sale price.
+    * <b>Alternative Hypothesis (H1):</b> The year of build has a strong positive correlation with sale price.
+    * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels.
+    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that 'YearBlt' is only strongly correlated to sale price. This is further demonstarted by a data visualisation.
+    * <b>Action</b> Accept alternative hypothesis.
 
-* <b>4: Storey Hypothesis</b> 
+* <b>4: Lot Size Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The lot size of a property does not have a strong positive correlation with sale price.
+    * <b>Alternative Hypothesis (H1):</b> The lot size of a property has a strong positive correlation with sale price.
+    * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels for 'LotFrontage' and 'LotArea'.
+    * <b>Validation:</b> 'LotFrontage' and 'LotArea' are weakly to moderately correlated with sale price.
+    * <b>Action</b> Accept null hypothesis. This may be an interesting insight to the client, as it challenges preconceptions about which features affect sale price.
+
+* <b>5: Storey Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The presence of a second storey/floor does not affect sale price.
     * <b>Alternative Hypothesis (H1):</b> Properties with a second storey/floor achieve higher sale price.
     * <b>How to Validate:</b>
     * <b>Validation:</b>
+    * <b>Action</b>
 
-* <b>5: Garage Hypothesis</b> 
+* <b>6: Garage Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The presence of a garage does not affect sale price.
     * <b>Alternative Hypothesis (H1):</b> Properties with garages achieve higher sale prices. 
     * <b>How to Validate:</b>
     * <b>Validation:</b>
+    * <b>Action</b>
 
-* <b>6: Basement Hypothesis</b> 
+* <b>7: Basement Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The presence of a basement does not affect sale price.
     * <b>Alternative Hypothesis (H1):</b> Properties with basements achieve higher sale prices.
     * <b>How to Validate:</b>
     * <b>Validation:</b>
-
-* <b>7: Lot Size Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The lot size of a property does not affect sale price.
-    * <b>Alternative Hypothesis (H1):</b> The lot size of a property is positively correlated to sale price.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
+    * <b>Action</b>
 
 * <b>8: Important Features Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The size of a property, lot size, and overall condition are not within the most important features in predicting sale price.
     * <b>Alternative Hypothesis (H1):</b> The size of a property, lot size and overall condition are expected to be included in the most important features in predicting sale price.
     * <b>How to Validate:</b>
     * <b>Validation:</b>
+    * <b>Action</b>
 
 * <b>9: Sale Price Prediction Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> We are not able to predict a sale price with an R2 value of at least 0.75 based on important features that have been identified through machine learning modelling.
     * <b>Alternative Hypothesis (H1):</b> We are able to predict a sale price with an R2 value of at least 0.75, based on important features that have been identified through machine learning modelling.
     * <b>How to Validate:</b>
     * <b>Validation:</b>
-
-* <b>Actions resulting from Hypotheses Validation</b>
+    * <b>Action</b>
 
 
 ## Rationale to Map Business Requirements to the Data Visualisations and ML tasks
