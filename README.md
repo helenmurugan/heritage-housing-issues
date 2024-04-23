@@ -99,17 +99,19 @@ Although your friend has an excellent understanding of property prices in her ow
 ## Hypotheses and Validation
 Taking into consideration the business requirements, knowledge of the dataset, nad existing knowledge and/or assumptions on house sale prices in alternative locations, the follwoing hypotheses have been formulated:
 
-* <b>1: Size Hypothesis</b> 
+* <b>1: Property Size Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The size of a property does not affect sale price.
     * <b>Alternative Hypothesis (H1):</b> The size of a property is positively correlated to sale price.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
+    * <b>How to Validate:</b> Investigate how features relating to property size in square feet or number of bedrooms are correlated to sale price. The features expected to correlate positively with sale price are '1stFlrSF', '2ndFlrSF', 'BedroomAbvGr', 'TotalBsmtSF', 'GarageArea' and 'GrLivArea'. Plot these features against SalePrice to determine the correlation. In addition, check the Spearman and Pearson correlation heatmaps to determine which features have the greatest affect on sale price.
+    * <b>Validation:</b> The features listed above are positively correlated to sale price as demonstrated by the heatmap analyses and data visualisations. '1stFlrSF', 'GarageArea' and 'GrLivArea' are strongly correlated with SalePrice, whilst '2ndFlrSF', 'BedroomAbvGr' and 'TotalBsmtSF' are weakly correlated to SalePrice.
+    * <b>Action</b> Accept alternative hypothesis, sale price is positively and strongly correlated with the square footage of the first floor, garage, above garde living area and basement. However, the client should be informed that number of bedrooms, square footage of the second floor and basement are only weakly positively correlated to sale price.
 
 * <b>2: Condition Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The condition of a property does not affect sale price
     * <b>Alternative Hypothesis (H1):</b> The condition of a property is positively correlated to sale price.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
+    * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels.
+    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that the Overall Condition of a property is only weakly correlated to sale price.
+    * <b>Action</b> Accept the null hypothesis. Overall condition of a property does not have a great impact on sale price. This may be an interesting insight for the client.
 
 * <b>3: Year Built Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The year of build does not affect sale price.
