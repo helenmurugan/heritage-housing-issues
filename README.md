@@ -100,8 +100,8 @@ Although your friend has an excellent understanding of property prices in her ow
 Taking into consideration the business requirements, knowledge of the dataset, nad existing knowledge and/or assumptions on house sale prices in alternative locations, the follwoing hypotheses have been formulated:
 
 * <b>1: Property Size Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The size of a property does not affect sale price.
-    * <b>Alternative Hypothesis (H1):</b> The size of a property is positively correlated to sale price.
+    * <b>Null Hypothesis (H0):</b> Features relating to the size of a property do not affect sale price.
+    * <b>Alternative Hypothesis (H1):</b> Features relating to the size of a property are positively correlated to sale price.
     * <b>How to Validate:</b> Investigate how features relating to property size in square feet or number of bedrooms are correlated to sale price. The features expected to correlate positively with sale price are '1stFlrSF', '2ndFlrSF', 'BedroomAbvGr', 'TotalBsmtSF', 'GarageArea' and 'GrLivArea'. Plot these features against SalePrice to determine the correlation. In addition, check the Spearman and Pearson correlation heatmaps to determine which features have the greatest affect on sale price.
     * <b>Validation:</b> The features listed above are positively correlated to sale price as demonstrated by the heatmap analyses and data visualisations. '1stFlrSF', 'GarageArea' and 'GrLivArea' are strongly correlated with SalePrice, whilst '2ndFlrSF', 'BedroomAbvGr' and 'TotalBsmtSF' are weakly correlated to SalePrice.
     * <b>Action</b> Accept alternative hypothesis, sale price is positively and strongly correlated with the square footage of the first floor, garage, above garde living area and basement. However, the client should be informed that number of bedrooms, square footage of the second floor and basement are only weakly positively correlated to sale price.
@@ -127,41 +127,19 @@ Taking into consideration the business requirements, knowledge of the dataset, n
     * <b>Validation:</b> 'LotFrontage' and 'LotArea' are weakly to moderately correlated with sale price.
     * <b>Action</b> Accept null hypothesis. This may be an interesting insight to the client, as it challenges preconceptions about which features affect sale price.
 
-* <b>5: Storey Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The presence of a second storey/floor does not affect sale price.
-    * <b>Alternative Hypothesis (H1):</b> Properties with a second storey/floor achieve higher sale price.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
-    * <b>Action</b>
-
-* <b>6: Garage Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The presence of a garage does not affect sale price.
-    * <b>Alternative Hypothesis (H1):</b> Properties with garages achieve higher sale prices. 
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
-    * <b>Action</b>
-
-* <b>7: Basement Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The presence of a basement does not affect sale price.
-    * <b>Alternative Hypothesis (H1):</b> Properties with basements achieve higher sale prices.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
-    * <b>Action</b>
-
-* <b>8: Important Features Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The size of a property, lot size, and overall condition are not within the most important features in predicting sale price.
-    * <b>Alternative Hypothesis (H1):</b> The size of a property, lot size and overall condition are expected to be included in the most important features in predicting sale price.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
-    * <b>Action</b>
-
-* <b>9: Sale Price Prediction Hypothesis</b> 
+* <b>5: Sale Price Prediction Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> We are not able to predict a sale price with an R2 value of at least 0.75 based on important features that have been identified through machine learning modelling.
     * <b>Alternative Hypothesis (H1):</b> We are able to predict a sale price with an R2 value of at least 0.75, based on important features that have been identified through machine learning modelling.
     * <b>How to Validate:</b>
     * <b>Validation:</b>
     * <b>Action</b>
 
+* <b>6: Important Features Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> Sale price cannot be accurately predicted by ML modelling using 3-6 important features.
+    * <b>Alternative Hypothesis (H1):</b> Sale price can be accurately predicted by ML modelling using 3-6 important features.
+    * <b>How to Validate:</b>
+    * <b>Validation:</b>
+    * <b>Action</b>
 
 ## Rationale to Map Business Requirements to the Data Visualisations and ML tasks
 <b>Business Requirement 1: Data Visualisation and Correlation Study</b>
@@ -297,7 +275,14 @@ During correlation and PPS analysis, the following warning was generated. A corr
 
 ## Credits 
 
-### Content 
+### Content
+* The following documentation and websites helped with hyperparameter tuning in Notebook 5.
+    * [GradientBoostingRegressor documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)
+    * [RandomForestRegressor documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn-ensemble-randomforestregressor)
+    * [ExtraTreesRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html)
+    * [Hyperparameter Tuning the Random Forest in Python](https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74)
+    * [How Extra trees classification and regression algorithm works](https://pro.arcgis.com/en/pro-app/latest/tool-reference/geoai/how-extra-tree-classification-and-regression-works.htm#:~:text=The%20extra%20trees%20algorithm%2C%20like,selected%20randomly%20for%20each%20tree.)
+    * [Ensembles: Gradient boosting, random forests, bagging, voting, stacking](https://scikit-learn.org/stable/modules/ensemble.html#forest)
 
 ### Code
 * Code Institute custom code was used for data cleaning, feature engineering and model fitting and is referenced in the notebooks.
