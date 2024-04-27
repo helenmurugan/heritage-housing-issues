@@ -231,7 +231,10 @@ The python code from the app_pages files was passed through the CI Python Linter
 
 
 ## Unfixed Bugs
+Encoding kitchen qual using label encoder gave me some problems - would use ordinal encoder next time. plot is missing from scatter plots.
 When evaluating missing data in notebook 3, the og df had to be reloaded in order for missing data to be evaluated. The label encoder must encode the variables in a way that they no longer have missing data.
+
+Smartcorrelatedselection was not performed properly during ML pipeline in NOtebook 5
 
 ## User Warnings
 During correlation and PPS analysis, the following warning was generated. A correlation is a measure of the strength of association between two variables. The warning is just a caution that the data may not be sufficient to show strong correlations In this case, the warning was ignored.
