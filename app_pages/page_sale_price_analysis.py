@@ -8,13 +8,13 @@ import ppscore as pps
 sns.set_style("whitegrid")
 
 
-# def page_sale_price_analysis_body():
+def page_sale_price_analysis_body():
 
-#     # load data
-#     df = load_house_prices_data()
-#     # The variable most strongly correlated with Sale Price/target
-#     vars_to_study = ['OverallQual', 'GrLivArea',
-#                      'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
+    # load data
+    df = load_house_prices_data()
+    # The variable most strongly correlated with Sale Price/target
+    # vars_to_study = ['OverallQual', 'GrLivArea',
+    #                  'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
 
 #     st.write("### Property Sale Price Analysis")
 #     st.success(

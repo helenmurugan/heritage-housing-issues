@@ -2,22 +2,22 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from src.data_management import load_house_prices_data, load_pkl_file
-from src.machine_learning.evaluate_regression import (
-    regression_performance,
-    regression_evaluation,
-    regression_evaluation_plots)
+# from src.machine_learning.evaluate_regression import (
+#     regression_performance,
+#     regression_evaluation,
+#     regression_evaluation_plots)
 
 
-# def page_predict_price_ml_body():
+def page_predict_price_ml_body():
 
-#     # load regression pipeline files
-#     vsn = 'v2'
-#     sale_price_pipe = load_pkl_file(
-#         f"outputs/ml_pipeline/predict_sale_price/{vsn}/regression_pipeline.pkl"
-#     )
-#     sale_price_feat_importance = plt.imread(
-#         f"outputs/ml_pipeline/predict_sale_price/{vsn}/features_importance.png"
-#     )
+    # load regression pipeline files
+    vsn = 'v2'
+    sale_price_pipe = load_pkl_file(
+        f"outputs/ml_pipeline/predict_sale_price/{vsn}/regression_pipeline.pkl"
+    )
+    sale_price_feat_importance = plt.imread(
+        f"outputs/ml_pipeline/predict_sale_price/{vsn}/features_importance.png"
+    )
 #     X_train = pd.read_csv(
 #         f"outputs/ml_pipeline/predict_sale_price/{vsn}/X_train.csv")
 #     X_test = pd.read_csv(
