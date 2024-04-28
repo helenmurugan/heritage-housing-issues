@@ -5,8 +5,7 @@ import numpy as np
 import streamlit as st
 import pandas as pd
 
-# code copied from "Modeling and Evaluation" notebooks
-
+# code taken from "Modelling_and_Evaluation_v2" notebook
 
 def regression_performance(X_train, y_train, X_test, y_test, pipeline):
     st.write("**Train Set**")

@@ -281,8 +281,11 @@ During correlation and PPS analysis, the following warning was generated. A corr
 * The images used for the gallery page were taken from this other open-source site
 
 ## Acknowledgements
-* Precious Ijege
-* CI peers
-* Arul Murugan
+* The following projects were used for inspiration during the development of this app.
+    * [Heritage Housing Issues project by URiem](https://github.com/URiem/heritage-housing-PP5/blob/main/README.md)
+    * [Heritage Housing Issues project by t-ullis](https://github.com/t-hullis/milestone-project-heritage-housing-issues)
+* CI peers, in particular the slack community on the #project-portfolio-5-predictive-analytics channel who were always there to support each other.
+* Precious Ijege for his expert mentoring.
+
 
 

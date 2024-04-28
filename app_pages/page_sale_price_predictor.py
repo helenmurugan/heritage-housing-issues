@@ -7,8 +7,7 @@ from src.data_management import (
     load_house_prices_data,
     load_pkl_file,
     load_inherited_house_data)
-# from src.machine_learning.evaluate_regression import regression_performance
-# from src.machine_learning.predictive_analysis_ui import predict_sale_price
+from src.machine_learning.predictive_analysis_ui import predict_sale_price
 
 
 def page_sale_price_predictor_body():
@@ -52,7 +51,7 @@ def page_sale_price_predictor_body():
     st.write("---")
     st.write(
         f"* Information on categorical feature: "
-        f"Ex: Excellent, Gd: Good, TA:Typical/Average, Fa: Fair\n\n"
+        f"Ex: Excellent, Gd: Good, TA: Typical/Average, Fa: Fair\n\n"
     )
     st.write("---")
     
@@ -61,28 +60,28 @@ def page_sale_price_predictor_body():
     X_live = DrawInputsWidgets()
 
 #     # predict on live data
-#     if st.button("Run Predictive Analysis"):
-#         predict_sale_price(X_live, sale_price_features, sale_price_pipe)
+    if st.button("Run Predictive Analysis"):
+        predict_sale_price(X_live, sale_price_features, sale_price_pipe)
 
-#     st.write("---")
+    st.write("---")
 
-#     st.write("### Price prediction for the clients inherited properties:")
-#     in_df = load_inherited_house_data()
-#     in_df = in_df.filter(sale_price_features)
+    st.write("### Price prediction for the clients inherited properties:")
+    in_df = load_inherited_house_data()
+    in_df = in_df.filter(sale_price_features)
 
-#     st.write("* Features of Inherited Homes")
-#     st.write(in_df)
+    st.write("* Features of Inherited Homes")
+    st.write(in_df)
 
-#     if st.button("Run Prediction on Inherited Homes"):
-#         inherited_price_prediction = predict_sale_price(
-#             in_df, sale_price_features, sale_price_pipe)
-#         total_value = inherited_price_prediction.sum()
-#         total_value = float(total_value.round(1))
-#         total_value = '${:,.2f}'.format(total_value)
+    if st.button("Run Prediction on Inherited Homes"):
+        inherited_price_prediction = predict_sale_price(
+            in_df, sale_price_features, sale_price_pipe)
+        total_value = inherited_price_prediction.sum()
+        total_value = float(total_value.round(1))
+        total_value = '${:,.2f}'.format(total_value)
 
-#         st.write(f"* The total value of the inherited homes is estimated"
-#                  f" to be:")
-#         st.write(f"**{total_value}**")
+        st.write(f"* The total value of the inherited homes is estimated"
+                 f" to be:")
+        st.write(f"**{total_value}**")
 
 
 def DrawInputsWidgets():
