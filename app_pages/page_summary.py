@@ -27,7 +27,7 @@ def page_summary_body():
         f" services and insights to address specific business "
         f"problems.\n"
         f"* **Sale price** refers to the monetary value at which a property is sold."
-        f"\n"
+        f" The values are represented in US dollars.\n"
         f"* **Property, real estate or house** may be used interchangably. \n"
         f"* **Features, attributes and variables** refer to the characteristics"
         f" of a property and may be used interchangably. \n \n"

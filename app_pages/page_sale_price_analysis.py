@@ -36,7 +36,7 @@ def page_sale_price_analysis_body():
     )
 
 # inspect data
-    if st.checkbox("Inspect Sale Price Dataset"):
+    if st.checkbox("Inspect Dataset"):
         st.write(
             f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns\n\n"
             f"* The dataframe below shows the first 10 observations"
@@ -180,14 +180,14 @@ def page_sale_price_analysis_body():
 
     st.info(
         f"*** Heatmap: PPS Correlation *** \n\n"
-        f"The Power Predictive Score (PPS) heatmap visualizes"
+        f"The Predictive Power Score (PPS) heatmap visualizes"
         f" the relationship between two variables, capturing"
         f" both linear and non-linear associations. Unlike "
         f"Pearson or Spearman correlation, PPS detects any "
         f"type of predictive relationship."
         )
 
-    if st.checkbox("Power Predictive Score (PPS) Correlation"):
+    if st.checkbox("Predictive Power Score (PPS) Correlation"):
 
         # encode categorical variables
         label_encoder = LabelEncoder()
@@ -212,11 +212,22 @@ def page_sale_price_analysis_body():
         
         
     st.info(
-        f"info"
+        f"Scatter plots showing the house attributes that are most strongly"
+        f" correlated to sale price are displayed below. "
+        f"The following variables have a moderate or strong positive "
+        f"correlation with sale price:\n\n"
+        f"* First floor area in square feet\n\n"
+        f"* Garage area in square feet\n\n"
+        f"* Garage year built\n\n"
+        f"* Above grade (ground) living area in square feet\n\n"
+        f"* Overall quality of materials and finishes\n\n"
+        f"* Total basement area in square feet\n\n"
+        f"* Original construction date\n\n"
+        f"* Year of remodelling (or build if it has not been remodelled)\n\n"
     )
 
     # Correlation plots adapted from the Data Visualisations Notebook
-    if st.checkbox("Scatter Plots of Variables vs Sale Price"):
+    if st.checkbox("Scatter Plots of Important Features vs Sale Price"):
         
         #encode categorical variables
         label_encoder = LabelEncoder()

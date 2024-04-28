@@ -94,49 +94,36 @@ A client has received an inheritance from a deceased great-grandfather, included
 * 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 ## Hypotheses and Validation
-Taking into consideration the business requirements, knowledge of the dataset, nad existing knowledge and/or assumptions on house sale prices in alternative locations, the follwoing hypotheses have been formulated:
+Taking into consideration the business requirements, knowledge of the dataset, and existing knowledge/assumptions on house sale prices in alternative locations, the following hypotheses have been formulated:
 
 * <b>1: Property Size Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> Features relating to the size of a property do not affect sale price.
     * <b>Alternative Hypothesis (H1):</b> Features relating to the size of a property are positively correlated to sale price.
     * <b>How to Validate:</b> Investigate how features relating to property size in square feet or number of bedrooms are correlated to sale price. The features expected to correlate positively with sale price are '1stFlrSF', '2ndFlrSF', 'BedroomAbvGr', 'TotalBsmtSF', 'GarageArea' and 'GrLivArea'. Plot these features against SalePrice to determine the correlation. In addition, check the Spearman and Pearson correlation heatmaps to determine which features have the greatest affect on sale price.
-    * <b>Validation:</b> The features listed above are positively correlated to sale price as demonstrated by the heatmap analyses and data visualisations. '1stFlrSF', 'GarageArea' and 'GrLivArea' are strongly correlated with SalePrice, whilst '2ndFlrSF', 'BedroomAbvGr' and 'TotalBsmtSF' are weakly correlated to SalePrice.
+    * <b>Validation:</b> Features related to property size are positively correlated to sale price as demonstrated by the heatmap analyses and data visualisations. '1stFlrSF', 'GarageArea' and 'GrLivArea' are strongly correlated with SalePrice, whilst '2ndFlrSF', 'BedroomAbvGr' and 'TotalBsmtSF' are weakly correlated to SalePrice.
     * <b>Action</b> Accept alternative hypothesis, sale price is positively and strongly correlated with the square footage of the first floor, garage, above garde living area and basement. However, the client should be informed that number of bedrooms, square footage of the second floor and basement are only weakly positively correlated to sale price.
 
-* <b>2: Condition Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The condition of a property does not have a strong positive correlation sale price
-    * <b>Alternative Hypothesis (H1):</b> The condition of a property has a strong positive correlation with sale price.
+* <b>2: Year Built Hypothesis</b> 
+    * <b>Null Hypothesis (H0):</b> The year of build does not have a positive correlation with sale price.
+    * <b>Alternative Hypothesis (H1):</b> The year of build has a positive correlation with sale price.
     * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels.
-    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that the 'OverallCond' of a property is only weakly correlated to sale price.
-    * <b>Action</b> Accept the null hypothesis. Overall condition of a property does not have a great impact on sale price. This may be an interesting insight for the client, as it challenges preconceptions about which features affect sale price.
-
-* <b>3: Year Built Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> The year of build does not have a strong positive correlation with sale price.
-    * <b>Alternative Hypothesis (H1):</b> The year of build has a strong positive correlation with sale price.
-    * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels.
-    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that 'YearBlt' is only strongly correlated to sale price. This is further demonstarted by a data visualisation.
+    * <b>Validation:</b> The Spearman and Pearson correlation heatmaps showed that 'YearBlt' has a moderate positive correlation to sale price. This is further demonstrated by a data visualisation.
     * <b>Action</b> Accept alternative hypothesis.
 
-* <b>4: Lot Size Hypothesis</b> 
+* <b>3: Lot Size Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> The lot size of a property does not have a strong positive correlation with sale price.
     * <b>Alternative Hypothesis (H1):</b> The lot size of a property has a strong positive correlation with sale price.
     * <b>How to Validate:</b> Check Spearman and Pearson correlation heatmaps to assess correlation levels for 'LotFrontage' and 'LotArea'.
     * <b>Validation:</b> 'LotFrontage' and 'LotArea' are weakly to moderately correlated with sale price.
     * <b>Action</b> Accept null hypothesis. This may be an interesting insight to the client, as it challenges preconceptions about which features affect sale price.
 
-* <b>5: Sale Price Prediction Hypothesis</b> 
+* <b>4: Sale Price Prediction Hypothesis</b> 
     * <b>Null Hypothesis (H0):</b> We are not able to predict a sale price with an R2 value of at least 0.75 based on important features that have been identified through machine learning modelling.
     * <b>Alternative Hypothesis (H1):</b> We are able to predict a sale price with an R2 value of at least 0.75, based on important features that have been identified through machine learning modelling.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
-    * <b>Action</b>
+    * <b>How to Validate: Calculate and optimise R2 scores for train and test set during Modelling and Evaluation stage. Compare to agreed limit of 0.75.</b>
+    * <b>Validation: R2 scores of greater than 0.75 have been achieved.</b>
+    * <b>Action</b> Accept alternative hypothesis.
 
-* <b>6: Important Features Hypothesis</b> 
-    * <b>Null Hypothesis (H0):</b> Sale price cannot be accurately predicted by ML modelling using 3-6 important features.
-    * <b>Alternative Hypothesis (H1):</b> Sale price can be accurately predicted by ML modelling using 3-6 important features.
-    * <b>How to Validate:</b>
-    * <b>Validation:</b>
-    * <b>Action</b>
 
 ## Rationale to Map Business Requirements to the Data Visualisations and ML tasks
 <b>Business Requirement 1: Data Visualisation and Correlation Study</b>
@@ -199,7 +186,7 @@ This page will satisfy the first business requirement of discovering how the hou
 
 * A sample of data from the data set.
 * Pearson and Spearman correlation plots between the features and the sale price.
-* Histogram and scatterplots of the most important predictive features.
+* Scatterplots of the most important predictive features.
 * Predictive Power Score Analysis.
 
 Correlation Analysis Screenshots
@@ -283,6 +270,7 @@ During correlation and PPS analysis, the following warning was generated. A corr
     * [Hyperparameter Tuning the Random Forest in Python](https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74)
     * [How Extra trees classification and regression algorithm works](https://pro.arcgis.com/en/pro-app/latest/tool-reference/geoai/how-extra-tree-classification-and-regression-works.htm#:~:text=The%20extra%20trees%20algorithm%2C%20like,selected%20randomly%20for%20each%20tree.)
     * [Ensembles: Gradient boosting, random forests, bagging, voting, stacking](https://scikit-learn.org/stable/modules/ensemble.html#forest)
+    * [Streamlit documentation](https://docs.streamlit.io/)
 
 ### Code
 * Code Institute custom code was used for data cleaning, feature engineering and model fitting and is referenced in the notebooks.

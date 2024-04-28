@@ -5,23 +5,47 @@ def page_project_hypothesis_body():
 
     st.write("### Project Hypothesis and Validation")
 
-    # conclusions taken from "02 - Churned Customer Study" notebook
     st.success(
-        f"* We hypothesize that a property's sale price correlates "
-    #     f" strongly "
-    #     f" with a subsection of the extensive features in the dataset. \n\n"
-    #     f"  * The correlation study of the dataset supports that. \n\n"
-    #     f"* We hypothesize that the correlation is strongest with"
-    #     f" common features of a home, such as total square footage, "
-    #     f" overall condition and overall quality. \n\n"
-    #     f"  * The correlation study confirmed this and showed that the "
-    #     f" sale price correlates most strongly with Overall Quality "
-    #     f" (OverallQual), Groundlevel Living area (GrLivArea), Garage "
-    #     f" Area (GarageArea), Total Basement Area (TotalBsmtSF), "
-    #     f" Year Built (YearBuilt), and 1st Floor squarefootage "
-    #     f" (1stFlrSF). These are all features which are common to most "
-    #     f" properties. \n\n"
-    #     f"* We hypothesize that we are able to predict a sale price with an "
-    #     f" R2 value of at least 0.8.\n\n"
-    #     f"  * The R2 analysis on the train and test sets confirms this."
+        f"**Property Size Hypothesis**\n\n"
+        f"* We hypothesise that features relating to the size of a property "
+        f"are positively correlated to sale price.\n\n"
+        f"**Accept hypothesis:** Features related to property size are "
+        f"positively correlated to "
+        f"sale price as demonstrated by the heatmap analyses and data "
+        f"visualisations. \n\n"
+        f"* '1stFlrSF', 'GarageArea' and 'GrLivArea' are "
+        f"strongly positively correlated with SalePrice.\n\n"
+        f"* '2ndFlrSF', "
+        f"'BedroomAbvGr' and 'TotalBsmtSF' are weakly positively correlated to SalePrice."
+   
+    )
+
+    st.success(
+        f"**Year Built Hypothesis**\n\n"
+        f"* We hypothesise that the year of build has a positive"
+        f" correlation with sale price.\n\n"
+        f"**Accept hypothesis:** The year of build has a moderate positive correlation to "
+        f"sale price. This is demonstrated by data visualisations including correlation "
+        f"heatmaps and a scatter plot.  \n\n"
+    )
+
+    st.info(
+        f"**Lot Size Hypothesis**\n\n"
+        f"* We hypothesise that the lot size has a strong positive"
+        f" correlation with sale price.\n\n"
+        f"**Reject hypothesis:** 'LotFrontage' and 'LotArea' are only weakly "
+        f" correlated with sale price. \n\n"
+        f"This may be an interesting insight, as it challenges "
+        f"preconceptions about which features most strongly affect sale price.  \n\n"
+    )
+
+    st.success(
+        f"**Sale Price Prediction Hypothesis**\n\n"
+        f"* We hypothesise that we are able to predict sale prices with an R2"
+        f" value of at least 0.75, based on important features that have been"
+        f" identified through machine learning. \n\n"
+        f"**Accept hypothesis:** R2 scores of greater than 0.75 have been achieved"
+        f" through ML modelling and evaluation. This indicates that the"
+        f" predictive model is performing well in capturing the underlying patterns"
+        f" in the data and making accurate predictions of sales price.  \n\n"
     )
