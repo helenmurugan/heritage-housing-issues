@@ -27,11 +27,11 @@ def page_sale_price_analysis_body():
 
     st.write("### Property Sale Price Analysis")
     st.success(
-        f"Business requirement 1 - The client is interested in "
+        f"The client is interested in "
         f"understanding the correlation "
         f" between property attributes and sale price."
         f" Therefore, the client expects data visualization of the correlated"
-        f" variables against the sale price. "
+        f" variables against the sale price (business requirement 1). "
         f" \n"
     )
 
