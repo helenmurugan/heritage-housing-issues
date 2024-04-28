@@ -1,11 +1,11 @@
 import streamlit as st
 
-# Function predicts house prices using the regression pipeline
 
+# Function predicts house prices using the regression pipeline
 def predict_sale_price(X_live, property_features, sale_price_pipeline):
 
-    # from live data filter most imp. features to ensure correct feature order and
-    # to avoid an incorrect prediction.
+    # From live data filter most imp. features to ensure
+    # correct feature order andto avoid an incorrect prediction.
     X_live_sale_price = X_live.filter(property_features)
 
     # predict

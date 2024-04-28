@@ -15,15 +15,11 @@ def page_sale_price_analysis_body():
     # load data
     df = load_house_prices_data()
     # The variables most strongly correlated with Sale Price
-    vars_to_study = ['1stFlrSF',
-                    'GarageArea',
-                    'GarageYrBlt',
-                    'GrLivArea',
-                    'KitchenQual_encoded',
-                    'OverallQual',
-                    'TotalBsmtSF',
-                    'YearBuilt',
-                    'YearRemodAdd'] 
+    vars_to_study = [
+        '1stFlrSF', 'GarageArea', 'GarageYrBlt', 'GrLivArea',
+        'KitchenQual_encoded', 'OverallQual', 'TotalBsmtSF',
+        'YearBuilt', 'YearRemodAdd'
+        ]
 
     st.write("### Property Sale Price Analysis")
     st.success(
@@ -38,18 +34,20 @@ def page_sale_price_analysis_body():
 # inspect data
     if st.checkbox("Inspect Dataset"):
         st.write(
-            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns\n\n"
+            f"* The dataset has {df.shape[0]} rows and {df.shape[1]}"
+            f" columns.\n\n"
             f"* The dataframe below shows the first 10 observations"
-            f" in the dataset")
+            f" in the dataset.")
         st.write(df.head(10))
         st.write(
             f"**Definition of Property Variables**\n\n"
             f"1stFlrSF - First Floor square feet \n\n"
             f"2ndFlrSF - Second-floor square feet \n\n"
-            f"BedroomAbvGr - Bedrooms above grade (does NOT include basement bedrooms) \n\n"
-            f"BsmtExposure - Refers to walkout or garden level walls"
-            f" (Gd: Good Exposure; Av: Average Exposure; Mn: Minimum Exposure; "
-            f"No: No Exposure; None: No Basement) \n\n"
+            f"BedroomAbvGr - Bedrooms above grade \n\n"
+            f"BsmtExposure - Refers to walkout or garden level"
+            f" walls"
+            f" (Gd: Good Exposure; Av: Average Exposure; Mn: Minimum"
+            f" Exposure; No: No Exposure; None: No Basement) \n\n"
             f"BsmtFinType1 - Rating of basement finished area"
             f"(GLQ: Good Living Quarters; ALQ: Average Living Quarters; "
             f"BLQ: Below Average Living Quarters; Rec: Average Rec Room; "
@@ -58,7 +56,8 @@ def page_sale_price_analysis_body():
             f"BsmtUnfSF - Unfinished square feet of basement area \n\n"
             f"TotalBsmtSF - Total square feet of basement area \n\n"
             f"GarageArea - Size of garage in square feet \n\n"
-            f"GarageFinish - Interior finish of the garage (Fin: Finished; RFn: "
+            f"GarageFinish - Interior finish of the garage (Fin: "
+            f"Finished; RFn: "
             f"Rough Finished; Unf: Unfinished; None: No Garage) \n\n"
             f"GarageYrBlt - Year garage was built \n\n"
             f"GrLivArea - Above grade (ground) living area square feet \n\n"
@@ -81,7 +80,6 @@ def page_sale_price_analysis_body():
             f"YearBuilt - Original construction date \n\n"
             f"YearRemodAdd - Remodel date (same as construction date"
             f" if no remodelling or additions)\n\n"
-          
         )
 
     st.write("---")
@@ -91,12 +89,13 @@ def page_sale_price_analysis_body():
     st.write(
         f"A correlation study was performed to gain insights on how "
         f"the house attributes are correlated to Sale Price. \n\n"
-        f"The correlation study showed that thefollowing features are most strongly"
+        f"The correlation study showed that thefollowing features"
+        f" are most strongly"
         f" correlated with the Sale Price: "
         f"**{vars_to_study}**\n\n"
         f"The relationships between attributes are displayed visually using"
-        f" Pearson and Spearman heatmaps, predictive power score (PPS) heatmap,"
-        f" bar plots and scatter plots. "
+        f" Pearson and Spearman heatmaps, predictive power score (PPS)"
+        f" heatmap, bar plots and scatter plots. "
     )
 
     st.info(
@@ -108,8 +107,8 @@ def page_sale_price_analysis_body():
         f"A value close to 1 or -1 suggests"
         f" a strong linear relationship, while a value close "
         f"to 0 suggests weak or no linear relationship."
-        f"The five attributes that are most strongly correlated with Sale Price "
-        f"are displayed in a bar plot.")
+        f"The five attributes that are most strongly correlated "
+        f"with Sale Price are displayed in a bar plot.")
 
     if st.checkbox("Pearson Correlation"):
 
@@ -128,20 +127,20 @@ def page_sale_price_analysis_body():
         # calculate correlations
         df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
 
-        #display heatmap
-        heatmap_corr(df=df_corr_pearson, 
-                    threshold=0.4, 
-                    figsize=(12,10), 
-                    font_annot=10)
+        # display heatmap
+        heatmap_corr(
+            df=df_corr_pearson, threshold=0.4,
+            figsize=(12, 10), font_annot=10
+            )
 
-        #display bar plot
+        # display bar plot
         display_pearson_corr_bar(df)
 
     st.info(
         f"*** Heatmap and Barplot: Spearman Correlation *** \n\n"
         f"The Spearman correlation is a measure of the monotonic "
         f"relationship between two continuous or variables, "
-        f"that is a relationship where the variables behave similarly" 
+        f"that is a relationship where the variables behave similarly"
         f"but not necessarily linearly. "
         f"It quantifies the strength and direction of the "
         f"association. "
@@ -169,13 +168,13 @@ def page_sale_price_analysis_body():
         # calculate correlations
         df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
 
-        #display heatmap
-        heatmap_corr(df=df_corr_spearman, 
-                    threshold=0.4, 
-                    figsize=(12,10), 
-                    font_annot=10)
+        # display heatmap
+        heatmap_corr(
+            df=df_corr_spearman, threshold=0.4,
+            figsize=(12, 10), font_annot=10
+            )
 
-        #display bar plot
+        # display bar plot
         display_spearman_corr_bar(df)
 
     st.info(
@@ -204,13 +203,12 @@ def page_sale_price_analysis_body():
         # calculate correlations
         df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
 
-        #display heatmap
-        heatmap_pps(df=pps_matrix, 
-                    threshold=0.4, 
-                    figsize=(12,10), 
-                    font_annot=10)
-        
-        
+        # display heatmap
+        heatmap_pps(
+            df=pps_matrix, threshold=0.4,
+            figsize=(12, 10), font_annot=10
+            )
+
     st.info(
         f"Scatter plots showing the house attributes that are most strongly"
         f" correlated to sale price are displayed below. "
@@ -228,8 +226,8 @@ def page_sale_price_analysis_body():
 
     # Correlation plots adapted from the Data Visualisations Notebook
     if st.checkbox("Scatter Plots of Important Features vs Sale Price"):
-        
-        #encode categorical variables
+
+        # encode categorical variables
         label_encoder = LabelEncoder()
         encoded_df = pd.DataFrame()
         for col in df.columns:
@@ -239,12 +237,11 @@ def page_sale_price_analysis_body():
             else:
                 encoded_df[col] = df[col]
 
-        #create new df with variables of interest
+        # create new df with variables of interest
         df_eda = encoded_df.filter(vars_to_study + ['SalePrice'])
 
-        #display scatter plots
+        # display scatter plots
         plot_numerical(df_eda, vars_to_study)
-
 
 
 def heatmap_corr(df, threshold, figsize=(20, 12), font_annot=8):
@@ -255,8 +252,8 @@ def heatmap_corr(df, threshold, figsize=(20, 12), font_annot=8):
 
         fig, axes = plt.subplots(figsize=figsize)
         sns.heatmap(df, annot=True, xticklabels=True, yticklabels=True,
-                    mask=mask, cmap='viridis', annot_kws={"size": font_annot}, ax=axes,
-                    linewidth=0.5
+                    mask=mask, cmap='viridis', annot_kws={"size": font_annot},
+                    ax=axes, linewidth=0.5
                     )
         axes.set_yticklabels(df.columns, rotation=0)
         plt.ylim(len(df.columns), 0)
@@ -269,8 +266,10 @@ def heatmap_pps(df, threshold, figsize=(20, 12), font_annot=8):
         mask[abs(df) < threshold] = True
         fig, ax = plt.subplots(figsize=figsize)
         ax = sns.heatmap(df, annot=True, xticklabels=True, yticklabels=True,
-                         mask=mask, cmap='rocket_r', annot_kws={"size": font_annot},
-                         linewidth=0.05, linecolor='grey')
+                         mask=mask, cmap='rocket_r',
+                         annot_kws={"size": font_annot}, linewidth=0.05,
+                         linecolor='grey'
+                         )
         ax.set_xlabel('')
         ax.set_ylabel('')
         plt.ylim(len(df.columns), 0)
@@ -282,11 +281,9 @@ def CalculateCorrAndPPS(df):
     df_corr_pearson = df.corr(method="pearson")
 
     pps_matrix_raw = pps.matrix(df)
-    pps_matrix = pps_matrix_raw.filter(['x', 'y', 'ppscore']).pivot(columns='x', index='y', values='ppscore')
-
-    pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T
-    print("PPS threshold - check PPS score IQR to decide threshold for heatmap \n")
-    print(pps_score_stats.round(3))
+    pps_matrix = pps_matrix_raw.filter(
+        ['x', 'y', 'ppscore']).pivot(columns='x', index='y', values='ppscore')
+    pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T # noqa
 
     return df_corr_pearson, df_corr_spearman, pps_matrix
 
@@ -297,7 +294,10 @@ def display_pearson_corr_bar(df):
         key=abs, ascending=False)[1:]
     fig, axes = plt.subplots(figsize=(6, 3))
     axes = plt.bar(x=corr_pearson[:5].index, height=corr_pearson[:5])
-    plt.title("Pearson Correlation of Attributes with Sale Price", fontsize=15, y=1.05)
+    plt.title(
+        "Pearson Correlation of Attributes with Sale Price",
+        fontsize=15, y=1.05
+        )
     plt.xticks(rotation=90)
     plt.ylabel("Pearson Coefficient")
     st.pyplot(fig)
@@ -309,7 +309,10 @@ def display_spearman_corr_bar(df):
         key=abs, ascending=False)[1:]
     fig, axes = plt.subplots(figsize=(6, 3))
     axes = plt.bar(x=corr_spearman[:5].index, height=corr_spearman[:5])
-    plt.title("Spearman Correlation of Attributes with Sale Price", fontsize=15, y=1.05)
+    plt.title(
+        "Spearman Correlation of Attributes with Sale Price",
+        fontsize=15, y=1.05
+        )
     plt.xticks(rotation=90)
     plt.ylabel("Spearman Coefficient")
     st.pyplot(fig)
@@ -324,7 +327,3 @@ def plot_numerical(df_eda, vars_to_study):
             axes = sns.scatterplot(data=df_eda, x=col, y=target_var)
             plt.title(f"{col}", fontsize=20, y=1.05)
             st.pyplot(fig)
-
-    
-
-    

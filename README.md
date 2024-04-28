@@ -21,7 +21,9 @@ Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
     * [Page 3: Sale Price Prediction](#page-3-sale-price-prediction)
     * [Page 4: Hypothesis and Validation](#page-4-hypothesis-and-validation)
     * [Page 5: Machine Learning Model](#page-4-hypothesis-and-validation)
-* [PEP8 Compliance Testing](#pep8-compliance-testing)
+* [Testing](#testing)
+    * [PEP8 Compliance Testing](#pep8-compliance-testing)
+    * [Manual Testing](#manual-testing)
 * [Unfixed Bugs](#unfixed-bugs)
 * [User Warnings](#user-warnings)
 * [Deployment](#deployment)
@@ -213,9 +215,13 @@ Hypothesis and Validation Screenshots
 
 ML Model: Price Prediction Screenshots
 
-## PEP8 Compliance Testing 
-The python code from the app_pages files was passed through the CI Python Linter. Code now passes with no errors.
+## Testing
+### PEP8 Compliance Testing 
+The python code from all .py files was passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Code passed with no errors in most cases. However, there were a few exceptions where the code could not be split across multiple lines whilst maintaining readbility. These exceptions are shown below:
+* page_sale_price_analysis - line 286
+    * pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T
 
+### Manual Testing
 
 ## Unfixed Bugs
 Encoding kitchen qual using label encoder gave me some problems - would use ordinal encoder next time. plot is missing from scatter plots.

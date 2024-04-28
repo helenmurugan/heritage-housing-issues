@@ -15,17 +15,18 @@ def page_project_hypothesis_body():
         f"visualisations. \n\n"
         f"* '1stFlrSF', 'GarageArea' and 'GrLivArea' are "
         f"strongly positively correlated with SalePrice.\n\n"
-        f"* '2ndFlrSF', "
-        f"'BedroomAbvGr' and 'TotalBsmtSF' are weakly positively correlated to SalePrice."
-   
+        f"* '2ndFlrSF', 'BedroomAbvGr' and 'TotalBsmtSF' are "
+        f"weakly positively correlated to SalePrice."
     )
 
     st.success(
         f"**Year Built Hypothesis**\n\n"
         f"* We hypothesise that the year of build has a positive"
         f" correlation with sale price.\n\n"
-        f"**Accept hypothesis:** The year of build has a moderate positive correlation to "
-        f"sale price. This is demonstrated by data visualisations including correlation "
+        f"**Accept hypothesis:** The year of build has a moderate positive"
+        f" correlation to "
+        f"sale price. This is demonstrated by data visualisations including"
+        f" correlation "
         f"heatmaps and a scatter plot.  \n\n"
     )
 
@@ -36,7 +37,8 @@ def page_project_hypothesis_body():
         f"**Reject hypothesis:** 'LotFrontage' and 'LotArea' are only weakly "
         f" correlated with sale price. \n\n"
         f"This may be an interesting insight, as it challenges "
-        f"preconceptions about which features most strongly affect sale price.  \n\n"
+        f"preconceptions about which features most strongly affect "
+        f"sale price.\n\n"
     )
 
     st.success(
@@ -44,8 +46,10 @@ def page_project_hypothesis_body():
         f"* We hypothesise that we are able to predict sale prices with an R2"
         f" value of at least 0.75, based on important features that have been"
         f" identified through machine learning. \n\n"
-        f"**Accept hypothesis:** R2 scores of greater than 0.75 have been achieved"
+        f"**Accept hypothesis:** R2 scores of greater than 0.75 have been"
+        f" achieved"
         f" through ML modelling and evaluation. This indicates that the"
-        f" predictive model is performing well in capturing the underlying patterns"
-        f" in the data and making accurate predictions of sales price.  \n\n"
+        f" predictive model is performing well in capturing the underlying"
+        f" patterns"
+        f" in the data and making accurate predictions of sales price.\n\n"
     )

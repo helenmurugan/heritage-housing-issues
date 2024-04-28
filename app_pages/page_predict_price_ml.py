@@ -43,13 +43,6 @@ def page_predict_price_ml_body():
     st.write(X_train.columns.to_list())
     st.image(sale_price_feat_importance)
 
-    st.write(
-        f"The model was trained on the following features: \n"
-        f"*  \n"
-        f"* \n"
-        f"*  \n"
-        f"* \n"
-    )
     st.write("---")
 
 #     # evaluate performance on both sets
