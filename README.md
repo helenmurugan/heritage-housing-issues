@@ -217,8 +217,8 @@ ML Model: Price Prediction Screenshots
 
 ## Testing
 ### PEP8 Compliance Testing 
-The python code from all .py files was passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Code passed with no errors in most cases. However, there were a few exceptions where the code could not be split across multiple lines whilst maintaining readbility. These exceptions are shown below:
-* page_sale_price_analysis - line 286
+The python code from all .py files was passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Code passed with no errors in most cases. However, there was one exceptions where the code could not be split across multiple lines whilst maintaining readability.
+* In page_sale_price_analysis - line 286:
     * pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T
 
 ### Manual Testing

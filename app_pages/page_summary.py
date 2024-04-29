@@ -10,7 +10,7 @@ def page_summary_body():
     # text based on README file - "Dataset Content" section
     st.info(
         f"**Project Purpose and Motivation**\n\n"
-        f"The client is an individual with inherited properties in "
+        f"The client is an individual with four inherited properties in "
         f"Ames, Iowa, who seeks to gain insights into the factors "
         f"influencing house sale prices in the area. Additionally, "
         f"the client wishes to predict the sale prices of their "

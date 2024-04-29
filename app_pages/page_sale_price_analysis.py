@@ -89,7 +89,7 @@ def page_sale_price_analysis_body():
     st.write(
         f"A correlation study was performed to gain insights on how "
         f"the house attributes are correlated to Sale Price. \n\n"
-        f"The correlation study showed that thefollowing features"
+        f"The correlation study showed that the following features"
         f" are most strongly"
         f" correlated with the Sale Price: "
         f"**{vars_to_study}**\n\n"
@@ -107,7 +107,7 @@ def page_sale_price_analysis_body():
         f"A value close to 1 or -1 suggests"
         f" a strong linear relationship, while a value close "
         f"to 0 suggests weak or no linear relationship."
-        f"The five attributes that are most strongly correlated "
+        f" The top five attributes that are most strongly correlated "
         f"with Sale Price are displayed in a bar plot.")
 
     if st.checkbox("Pearson Correlation"):
@@ -139,15 +139,15 @@ def page_sale_price_analysis_body():
     st.info(
         f"*** Heatmap and Barplot: Spearman Correlation *** \n\n"
         f"The Spearman correlation is a measure of the monotonic "
-        f"relationship between two continuous or variables, "
+        f"relationship between two continuous variables, "
         f"that is a relationship where the variables behave similarly"
-        f"but not necessarily linearly. "
+        f" but not necessarily linearly. "
         f"It quantifies the strength and direction of the "
         f"association. "
         f"A value close to 1 or -1 suggests a strong monotonic "
         f"relationship, while a value close to 0 suggests weak "
         f"or no monotonic relationship. "
-        f"The five attributes that are most strongly correlated "
+        f"The top five attributes that are most strongly correlated "
         f"with Sale Price are displayed in a bar plot."
         )
 
@@ -179,10 +179,10 @@ def page_sale_price_analysis_body():
 
     st.info(
         f"*** Heatmap: PPS Correlation *** \n\n"
-        f"The Predictive Power Score (PPS) heatmap visualizes"
+        f"The Predictive Power Score (PPS) heatmap visualises"
         f" the relationship between two variables, capturing"
         f" both linear and non-linear associations. Unlike "
-        f"Pearson or Spearman correlation, PPS detects any "
+        f"Pearson or Spearman correlations, PPS detects any "
         f"type of predictive relationship."
         )
 

@@ -30,7 +30,17 @@ def page_predict_price_ml_body():
 #     st.write("### ML Pipeline: Predict Property Sale Price")
 #     # display pipeline training summary conclusions
     st.success(
-        f" conclusions ")
+        f"**ML Model Performance**\n\n"
+        f"A machine learning model was implemented to predict house"
+        f"sale prices in Ames, Iowa, as requested by the client."
+        f"The model was trained using a linear regression algorithm, which"
+        f"was tuned using the best combination of parameters to maximise" 
+        f"model performance.\n\n"
+        f"We use the R2 metric to measure ML model performance. This model"
+        f" achieved R2 scores of 0.945 and 0.825 on the train set and test"
+        f" set respectively."
+        )
+
     st.write("---")
 
 #     # show pipeline steps
@@ -39,7 +49,7 @@ def page_predict_price_ml_body():
     st.write("---")
 
 #     # show best features
-    st.write("### The features the model was trained on and their importance.")
+    st.write("### The model was trained on the following features, in order of importance:")
     st.write(X_train.columns.to_list())
     st.image(sale_price_feat_importance)
 

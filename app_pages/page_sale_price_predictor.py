@@ -30,7 +30,7 @@ def page_sale_price_predictor_body():
         f" the potential sale prices"
         f" for properties in Ames, Iowa, and specifically to"
         f" determine a potential value for the sum of the sales "
-        f" prices for four inherited properties (business requirement 2).\n"
+        f" prices of four inherited properties (business requirement 2).\n"
     )
 
     st.info(
@@ -38,21 +38,16 @@ def page_sale_price_predictor_body():
         f" features of the property, which can be input"
         f" using the widgets below. These features were identified by"
         f" the machine learning model as the most important features "
-        f"to predict sale  price. They differ slightly from the "
-        f" variables "
-        f" identified in the correlation study. This "
-        f" is because the model carries out more complex analysis on the "
-        f" variables and identifies the best variables to use"
-        f". \n\n "
-        f" More information on the "
-        f" machine learning model and feature importance can be found on the "
-        f" **ML: Price Prediction** page. \n\n"
+        f"to predict sale  price."
     )
+
     st.write("---")
+
     st.write(
         f"* Information on categorical feature: "
         f"Ex: Excellent, Gd: Good, TA: Typical/Average, Fa: Fair\n\n"
     )
+    
     st.write("---")
 
 
