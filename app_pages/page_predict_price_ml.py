@@ -49,8 +49,9 @@ def page_predict_price_ml_body():
     st.write("---")
 
 #     # show best features
-    st.write("### The model was trained on the following features, in order of importance:")
+    st.write("### The model was trained on the following features:")
     st.write(X_train.columns.to_list())
+    st.write("### Features Importance plot:")
     st.image(sale_price_feat_importance)
 
     st.write("---")

@@ -83,7 +83,7 @@ def DrawInputsWidgets():
 
     # load dataset
     df = load_house_prices_data()
-    percentageMin, percentageMax = 0.2, 2.5
+    percentageMin, percentageMax = 0.4, 2.0
 
     # we create input widgets for the 4 best features
     col1, col2, col3, col4 = st.beta_columns(4)
@@ -92,11 +92,6 @@ def DrawInputsWidgets():
     # We are using these features to feed the ML pipeline -
     # create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
-
-    # from here on we draw the widget based on the variable type
-    # (numerical or categorical) and set initial values
-    # setup of widgets with min and max values, learned from
-    # https://github.com/t-hullis/milestone-project-heritage-housing-issues/tree/main
 
     with col1:
         feature = "1stFlrSF"
@@ -153,7 +148,7 @@ def DrawInputsWidgets():
     with col6:
         feature = "YearRemodAdd"
         st_widget = st.number_input(
-            label="Year Redmoddelling Added",
+            label="Year Redmodelling Added",
             min_value=int(df[feature].min()*percentageMin),
             max_value=int(df[feature].max()*percentageMax),
             value=int(df[feature].median()),

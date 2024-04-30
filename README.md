@@ -36,7 +36,7 @@ Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
     * [Acknowledgements](#acknowledgements)
 
 ## Introduction
-Heritage Housing Issues utilises conventional data analysis techniques and machine learning to answer a clients business requirements relating to property sales in Ames, Iowa, USA. It includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and property sale price.  The project also features a machine learning model that enables the client and other users to predict property sale prices based on various house attributes, through a dedicated web application. The project utilizes a Kaggle real estate dataset as its input. This dataset provides comprehensive data on house attributes and sale price in order to accurately answer a real-world business requirement. 
+Heritage Housing Issues utilises conventional data analysis techniques and machine learning to answer a client's business requirements, relating to property sales in Ames, Iowa, USA. It includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and property sale price.  The project also features a machine learning model that enables the client and other users to predict property sale prices based on various house attributes, through a dedicated web application. The project utilizes a Kaggle real estate dataset as its input. This dataset provides comprehensive data on house attributes and sale price in order to accurately answer a real-world business requirement. 
 
 Heritage Housing Issues is the fifth and final portfolio project for a Code Institute Diploma in Full Stack Software Development with Predictive Analytics specialisation.
 

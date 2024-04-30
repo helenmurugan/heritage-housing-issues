@@ -28,7 +28,8 @@ def page_summary_body():
         f"problems.\n"
         f"* **Sale price** refers to the monetary value at which "
         f"a property is sold. The values are represented in US dollars.\n"
-        f"* **Property, real estate or house** may be used interchangably. \n"
+        f"* **Property, real estate or house** may be used interchangably, "
+        f"and refer to the records in the dataset. \n"
         f"* **Features, attributes and variables** refer to the "
         f"characteristics of a property and may be used interchangably. \n \n"
 
