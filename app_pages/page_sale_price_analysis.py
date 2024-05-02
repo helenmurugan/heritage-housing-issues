@@ -16,17 +16,16 @@ def page_sale_price_analysis_body():
     df = load_house_prices_data()
     # The variables most strongly correlated with Sale Price
     vars_to_study = [
-        '1stFlrSF', 'GarageArea', 'GarageYrBlt', 'GrLivArea',
-        'KitchenQual_encoded', 'OverallQual', 'TotalBsmtSF',
-        'YearBuilt', 'YearRemodAdd'
-        ]
+        '1stFlrSF', 'GarageArea', 'GrLivArea', 'OverallQual',
+        'TotalBsmtSF', 'YearBuilt', 'YearRemodAdd'
+    ]
 
     st.write("### Property Sale Price Analysis")
     st.success(
         f"The client is interested in "
         f"understanding the correlation "
         f" between property attributes and sale price."
-        f" Therefore, the client expects data visualization of the correlated"
+        f" Therefore, the client expects data visualisations of the correlated"
         f" variables against the sale price (business requirement 1). "
         f" \n"
     )
@@ -59,14 +58,12 @@ def page_sale_price_analysis_body():
             f"GarageFinish - Interior finish of the garage (Fin: "
             f"Finished; RFn: "
             f"Rough Finished; Unf: Unfinished; None: No Garage) \n\n"
-            f"GarageYrBlt - Year garage was built \n\n"
             f"GrLivArea - Above grade (ground) living area square feet \n\n"
             f"KitchenQual - Kitchen quality (Ex: Excellent; Gd: Good; TA: "
             f"Typical/Average; Fa: Fair; Po: Poor) \n\n"
             f"LotArea - Lot size in square feet \n\n"
             f"LotFrontage - Linear feet of street connected to property \n\n"
             f"MasVnrArea - Masonry veneer area in square feet \n\n"
-            f"EnclosedPorch - Enclosed porch area in square feet \n\n"
             f"OpenPorchSF - Open porch area in square feet \n\n"
             f"OverallCond - Rates the overall condition of the house "
             f"(10: Very Excellent; 9: Excellent; 8: Very Good; 7: Good; "
@@ -76,7 +73,6 @@ def page_sale_price_analysis_body():
             f"the house (10: Very Excellent; 9: Excellent; 8: Very Good; "
             f"7: Good; 6: Above Average; 5: Average; 4: Below Average; "
             f"3: Fair; 2: Poor; 1: Very Poor) \n\n"
-            f"WoodDeckSF - Wood deck area in square feet \n\n"
             f"YearBuilt - Original construction date \n\n"
             f"YearRemodAdd - Remodel date (same as construction date"
             f" if no remodelling or additions)\n\n"
@@ -87,15 +83,15 @@ def page_sale_price_analysis_body():
     st.write("### Correlation Study")
     # Correlation Study Summary
     st.write(
-        f"A correlation study was performed to gain insights on how "
-        f"the house attributes are correlated to Sale Price. \n\n"
         f"The correlation study showed that the following features"
         f" are most strongly"
-        f" correlated with the Sale Price: "
+        f" correlated with sale price: "
         f"**{vars_to_study}**\n\n"
-        f"The relationships between attributes are displayed visually using"
-        f" Pearson and Spearman heatmaps, predictive power score (PPS)"
-        f" heatmap, bar plots and scatter plots. "
+        f"These attributes all have a correlation coefficient greater"
+        f" than 0.5. \n"
+        f"Data visualisations have been generated to demonstrate the "
+        f"relationships between attributes and provide insights on which"
+        f"house attributes are most important for predicting sale price."
     )
 
     st.info(
@@ -112,18 +108,6 @@ def page_sale_price_analysis_body():
 
     if st.checkbox("Pearson Correlation"):
 
-        # encode categorical variables
-        label_encoder = LabelEncoder()
-        encoded_df = pd.DataFrame()
-
-        for col in df.columns:
-            if df[col].dtype == 'object':
-                encoded_col = label_encoder.fit_transform(df[col])
-                encoded_df[col+'_encoded'] = encoded_col
-            else:
-                encoded_df[col] = df[col]
-        df = encoded_df
-
         # calculate correlations
         df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
 
@@ -133,8 +117,17 @@ def page_sale_price_analysis_body():
             figsize=(12, 10), font_annot=10
             )
 
+        st.write("")
+        st.write("")
+
         # display bar plot
         display_pearson_corr_bar(df)
+
+        st.write("")
+        st.write("")
+
+        # display pie chart
+        display_pearson_corr_pie(df)
 
     st.info(
         f"*** Heatmap and Barplot: Spearman Correlation *** \n\n"
@@ -153,18 +146,6 @@ def page_sale_price_analysis_body():
 
     if st.checkbox("Spearman Correlation"):
 
-        # encode categorical variables
-        label_encoder = LabelEncoder()
-        encoded_df = pd.DataFrame()
-
-        for col in df.columns:
-            if df[col].dtype == 'object':
-                encoded_col = label_encoder.fit_transform(df[col])
-                encoded_df[col+'_encoded'] = encoded_col
-            else:
-                encoded_df[col] = df[col]
-        df = encoded_df
-
         # calculate correlations
         df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
 
@@ -174,8 +155,17 @@ def page_sale_price_analysis_body():
             figsize=(12, 10), font_annot=10
             )
 
+        st.write("")
+        st.write("")
+
         # display bar plot
         display_spearman_corr_bar(df)
+
+        st.write("")
+        st.write("")
+
+        # display pie chart
+        display_spearman_corr_pie(df)
 
     st.info(
         f"*** Heatmap: PPS Correlation *** \n\n"
@@ -188,24 +178,12 @@ def page_sale_price_analysis_body():
 
     if st.checkbox("Predictive Power Score (PPS) Correlation"):
 
-        # encode categorical variables
-        label_encoder = LabelEncoder()
-        encoded_df = pd.DataFrame()
-
-        for col in df.columns:
-            if df[col].dtype == 'object':
-                encoded_col = label_encoder.fit_transform(df[col])
-                encoded_df[col+'_encoded'] = encoded_col
-            else:
-                encoded_df[col] = df[col]
-        df = encoded_df
-
         # calculate correlations
         df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
 
         # display heatmap
         heatmap_pps(
-            df=pps_matrix, threshold=0.4,
+            df=pps_matrix, threshold=0.3,
             figsize=(12, 10), font_annot=10
             )
 
@@ -227,18 +205,8 @@ def page_sale_price_analysis_body():
     # Correlation plots adapted from the Data Visualisations Notebook
     if st.checkbox("Scatter Plots of Important Features vs Sale Price"):
 
-        # encode categorical variables
-        label_encoder = LabelEncoder()
-        encoded_df = pd.DataFrame()
-        for col in df.columns:
-            if df[col].dtype == 'object':
-                encoded_col = label_encoder.fit_transform(df[col])
-                encoded_df[col+'_encoded'] = encoded_col
-            else:
-                encoded_df[col] = df[col]
-
         # create new df with variables of interest
-        df_eda = encoded_df.filter(vars_to_study + ['SalePrice'])
+        df_eda = df.filter(vars_to_study + ['SalePrice'])
 
         # display scatter plots
         plot_numerical(df_eda, vars_to_study)
@@ -256,6 +224,10 @@ def heatmap_corr(df, threshold, figsize=(20, 12), font_annot=8):
                     ax=axes, linewidth=0.5
                     )
         axes.set_yticklabels(df.columns, rotation=0)
+        plt.title(
+            "Correlation Heatmap",
+            fontsize=15, y=1.05
+        )
         plt.ylim(len(df.columns), 0)
         st.pyplot(fig)
 
@@ -272,6 +244,10 @@ def heatmap_pps(df, threshold, figsize=(20, 12), font_annot=8):
                          )
         ax.set_xlabel('')
         ax.set_ylabel('')
+        plt.title(
+            "Correlation Heatmap: PPS",
+            fontsize=15, y=1.05
+        )
         plt.ylim(len(df.columns), 0)
         st.pyplot(fig)
 
@@ -283,7 +259,7 @@ def CalculateCorrAndPPS(df):
     pps_matrix_raw = pps.matrix(df)
     pps_matrix = pps_matrix_raw.filter(
         ['x', 'y', 'ppscore']).pivot(columns='x', index='y', values='ppscore')
-    pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T # noqa
+    pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T  # noqa
 
     return df_corr_pearson, df_corr_spearman, pps_matrix
 
@@ -293,13 +269,14 @@ def display_pearson_corr_bar(df):
     corr_pearson = df.corr(method='pearson')['SalePrice'].sort_values(
         key=abs, ascending=False)[1:]
     fig, axes = plt.subplots(figsize=(6, 3))
-    axes = plt.bar(x=corr_pearson[:5].index, height=corr_pearson[:5])
+    axes = plt.bar(x=corr_pearson[:7].index, height=corr_pearson[:7])
     plt.title(
-        "Pearson Correlation of Attributes with Sale Price",
-        fontsize=15, y=1.05
+        "Top Attributes Correlated with Sale Price",
+        fontsize=8, y=1.05
         )
-    plt.xticks(rotation=90)
-    plt.ylabel("Pearson Coefficient")
+    plt.xticks(rotation=90, fontsize=8)
+    plt.ylabel("Pearson Coefficient", fontsize=8)
+    plt.yticks(fontsize=8)
     st.pyplot(fig)
 
 
@@ -308,13 +285,80 @@ def display_spearman_corr_bar(df):
     corr_spearman = df.corr(method='spearman')['SalePrice'].sort_values(
         key=abs, ascending=False)[1:]
     fig, axes = plt.subplots(figsize=(6, 3))
-    axes = plt.bar(x=corr_spearman[:5].index, height=corr_spearman[:5])
+    axes = plt.bar(x=corr_spearman[:7].index, height=corr_spearman[:7])
     plt.title(
-        "Spearman Correlation of Attributes with Sale Price",
-        fontsize=15, y=1.05
+        "Top Attributes Correlated with Sale Price",
+        fontsize=8, y=1.05
         )
-    plt.xticks(rotation=90)
-    plt.ylabel("Spearman Coefficient")
+    plt.xticks(rotation=90, fontsize=8)
+    plt.ylabel("Spearman Coefficient", fontsize=8)
+    plt.yticks(fontsize=8)
+    st.pyplot(fig)
+
+
+def display_spearman_corr_pie(df):
+    """
+    Calculate and display Pie Chart based on
+    Spearman correlation coefficients
+    """
+    corr_spearman_for_pie = (
+        df.corr(method='spearman')['SalePrice']
+        .sort_values(key=abs, ascending=False)[1:]
+    )
+
+    spearman_data = corr_spearman_for_pie.reset_index()
+    spearman_data.columns = ['Feature', 'Correlation']
+    df_corr_spearman = pd.DataFrame(spearman_data)
+    df_corr_spearman['Correlation'] = df_corr_spearman['Correlation'].abs()
+    df_corr_spearman['Normalized_Correlation'] = (
+        df_corr_spearman['Correlation'] / df_corr_spearman['Correlation'].sum()
+    )
+
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.pie(
+        df_corr_spearman['Normalized_Correlation'],
+        labels=df_corr_spearman['Feature'],
+        autopct='%1.1f%%'
+    )
+    ax.set_title(
+        'Importance of House Attributes for Predicting Sale Price',
+        fontsize=11,
+        y=1.05
+    )
+
+    st.pyplot(fig)
+
+
+def display_pearson_corr_pie(df):
+    """
+    Calculate and display Pie Chart based on
+    Pearson correlation coefficients
+    """
+    corr_pearson_for_pie = (
+        df.corr(method='pearson')['SalePrice']
+        .sort_values(key=abs, ascending=False)[1:]
+    )
+
+    pearson_data = corr_pearson_for_pie.reset_index()
+    pearson_data.columns = ['Feature', 'Correlation']
+    df_corr_pearson = pd.DataFrame(pearson_data)
+    df_corr_pearson['Correlation'] = df_corr_pearson['Correlation'].abs()
+    df_corr_pearson['Normalized_Correlation'] = (
+        df_corr_pearson['Correlation'] / df_corr_pearson['Correlation'].sum()
+    )
+
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.pie(
+        df_corr_pearson['Normalized_Correlation'],
+        labels=df_corr_pearson['Feature'],
+        autopct='%1.1f%%'
+    )
+    ax.set_title(
+        'Importance of House Attributes for Predicting Sale Price',
+        fontsize=11,
+        y=1.05
+    )
+
     st.pyplot(fig)
 
 
@@ -322,8 +366,7 @@ def plot_numerical(df_eda, vars_to_study):
     """scatterplots of variables vs SalePrice """
     target_var = 'SalePrice'
     for col in vars_to_study:
-        if col != 'KitchenQual_encoded':
-            fig, axes = plt.subplots(figsize=(8, 5))
-            axes = sns.scatterplot(data=df_eda, x=col, y=target_var)
-            plt.title(f"{col}", fontsize=20, y=1.05)
-            st.pyplot(fig)
+        fig, axes = plt.subplots(figsize=(8, 5))
+        axes = sns.scatterplot(data=df_eda, x=col, y=target_var)
+        plt.title(f"{col}", fontsize=20, y=1.05)
+        st.pyplot(fig)
