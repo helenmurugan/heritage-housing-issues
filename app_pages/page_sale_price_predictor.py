@@ -42,7 +42,7 @@ def page_sale_price_predictor_body():
         f" is run, the data is fed into the ML pipeline that "
         f"preprocesses the data and predicts the house sale price "
         f"using an algorithm that has been tuned for optimal performance.\n\n"
-        f"Additionally, the model predicts the total value for the sum of"
+        f"Additionally, the model predicts the total value for the sum of "
         f"the client's inherited properties."
     )
 
