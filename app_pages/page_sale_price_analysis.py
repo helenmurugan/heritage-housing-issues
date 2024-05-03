@@ -1,7 +1,7 @@
 import plotly.express as px
 import numpy as np
 import streamlit as st
-from src.data_management import load_house_prices_data
+from src.data_management import load_clean_house_prices_data
 import matplotlib.pyplot as plt
 import seaborn as sns
 import ppscore as pps
@@ -13,8 +13,9 @@ sns.set_style("whitegrid")
 def page_sale_price_analysis_body():
 
     # load data
-    df = load_house_prices_data()
-    # The variables most strongly correlated with Sale Price
+    df = load_clean_house_prices_data()
+
+    # define variables most strongly correlated with Sale Price
     vars_to_study = [
         '1stFlrSF', 'GarageArea', 'GrLivArea', 'OverallQual',
         'TotalBsmtSF', 'YearBuilt', 'YearRemodAdd'
@@ -23,20 +24,22 @@ def page_sale_price_analysis_body():
     st.write("### Property Sale Price Analysis")
     st.success(
         f"The client is interested in "
-        f"understanding the correlation "
+        f"understanding the correlations "
         f" between property attributes and sale price."
-        f" Therefore, the client expects data visualisations of the correlated"
-        f" variables against the sale price (business requirement 1). "
-        f" \n"
+        f" Therefore, the client expects data visualisations which demonstrate"
+        f" the relationships between relevant attributes and sale price."
+        f" (Business Requirement 1). \n"
     )
 
 # inspect data
     if st.checkbox("Inspect Dataset"):
         st.write(
-            f"* The dataset has {df.shape[0]} rows and {df.shape[1]}"
-            f" columns.\n\n"
+            f"* The dataset used for this correlation study has "
+            f"{df.shape[0]} rows and {df.shape[1]} columns.\n\n"
             f"* The dataframe below shows the first 10 observations"
-            f" in the dataset.")
+            f" in the dataset.\n\n"
+            f"* Data cleaning has been perfomed on this dataset to improve"
+            f" data quality, leading to more useful data visualisations.")
         st.write(df.head(10))
         st.write(
             f"**Definition of Property Variables**\n\n"
@@ -81,21 +84,27 @@ def page_sale_price_analysis_body():
     st.write("---")
 
     st.write("### Correlation Study")
+
     # Correlation Study Summary
     st.write(
         f"The correlation study showed that the following features"
         f" are most strongly"
         f" correlated with sale price: "
+        f"\n\n"
         f"**{vars_to_study}**\n\n"
-        f"These attributes all have a correlation coefficient greater"
-        f" than 0.5. \n"
+        f"\n\n"
+        f"These attributes have correlation coefficients greater"
+        f" than 0.5, indicating strong positive linear relationships.\n"
+        f"\n\n"
         f"Data visualisations have been generated to demonstrate the "
         f"relationships between attributes and provide insights on which"
         f"house attributes are most important for predicting sale price."
+        f" Visualisations generated in this study include correlation"
+        f"heatmaps, bar plots, pie charts and scatter graphs."
     )
 
     st.info(
-        f"*** Heatmap and Barplot: Pearson Correlation *** \n\n"
+        f"***Pearson Correlation Study*** \n\n"
         f" The Pearson correlation is a measure of the linear "
         f"relationship between two continuous variables. It "
         f"quantifies the strength and direction of the linear "
@@ -103,8 +112,7 @@ def page_sale_price_analysis_body():
         f"A value close to 1 or -1 suggests"
         f" a strong linear relationship, while a value close "
         f"to 0 suggests weak or no linear relationship."
-        f" The top five attributes that are most strongly correlated "
-        f"with Sale Price are displayed in a bar plot.")
+        )
 
     if st.checkbox("Pearson Correlation"):
 
@@ -113,24 +121,40 @@ def page_sale_price_analysis_body():
 
         # display heatmap
         heatmap_corr(
-            df=df_corr_pearson, threshold=0.4,
+            df=df_corr_pearson, threshold=0.3,
             figsize=(12, 10), font_annot=10
             )
 
-        st.write("")
+        st.info(
+            f"The heatmap shows that OverallQual has the highest"
+            f" Pearson correlation with sale price. A threshold of 0.3 has"
+            f" been set, so that only moderate and strong relationships"
+            f" are displayed."
+        )
         st.write("")
 
         # display bar plot
         display_pearson_corr_bar(df)
 
-        st.write("")
+        st.info(
+            f"The bar plot shows the order of importance for the variables"
+            f" with the strongest Pearson correlation to sale price."
+            f" The focus should be on these attributes when estimating"
+            f" property sale prices."
+            )
         st.write("")
 
         # display pie chart
         display_pearson_corr_pie(df)
+        st.info(
+            f"The pie chart shows the relative importance of all variables"
+            f" for predicting sale price. Certain features may be"
+            f" disregarded if they have very little importance for"
+            f" predicting sale prices."
+            )
 
     st.info(
-        f"*** Heatmap and Barplot: Spearman Correlation *** \n\n"
+        f"***Spearman Correlation Study*** \n\n"
         f"The Spearman correlation is a measure of the monotonic "
         f"relationship between two continuous variables, "
         f"that is a relationship where the variables behave similarly"
@@ -139,9 +163,7 @@ def page_sale_price_analysis_body():
         f"association. "
         f"A value close to 1 or -1 suggests a strong monotonic "
         f"relationship, while a value close to 0 suggests weak "
-        f"or no monotonic relationship. "
-        f"The top five attributes that are most strongly correlated "
-        f"with Sale Price are displayed in a bar plot."
+        f"or no monotonic relationship."
         )
 
     if st.checkbox("Spearman Correlation"):
@@ -151,24 +173,44 @@ def page_sale_price_analysis_body():
 
         # display heatmap
         heatmap_corr(
-            df=df_corr_spearman, threshold=0.4,
+            df=df_corr_spearman, threshold=0.3,
             figsize=(12, 10), font_annot=10
             )
 
-        st.write("")
+        st.info(
+            f"The heatmap shows that OverallQual has the highest"
+            f" Spearman correlation with sale price. A threshold of 0.3 has "
+            f"been set, so that only moderate and strong relationships are"
+            f" displayed."
+            )
         st.write("")
 
         # display bar plot
         display_spearman_corr_bar(df)
 
-        st.write("")
+        st.info(
+            f"The bar plot shows the order of importance for the variables"
+            f" with the strongest Spearman correlation to sale price."
+            f" The focus should beon these attributes when estimating property"
+            f" sale prices. The most important variables are the same for both"
+            f" Pearson and Spearman methods, although the order of importance"
+            f" is different."
+            )
         st.write("")
 
         # display pie chart
         display_spearman_corr_pie(df)
+        st.info(
+            f"The pie chart shows the relative importance of all variables for"
+            f" predicting sale price. Certain features may be disregarded"
+            f" if they have very little importance for predicting sale prices."
+            f" Comparison of the pie charts in the Pearson and Spearman"
+            f" studies show mostly similarites, however, the order of some"
+            f" attributes are different."
+            )
 
     st.info(
-        f"*** Heatmap: PPS Correlation *** \n\n"
+        f"*** PPS Correlation Heatmap*** \n\n"
         f"The Predictive Power Score (PPS) heatmap visualises"
         f" the relationship between two variables, capturing"
         f" both linear and non-linear associations. Unlike "
@@ -187,10 +229,18 @@ def page_sale_price_analysis_body():
             figsize=(12, 10), font_annot=10
             )
 
+        st.info(
+            f"The heatmap shows that OverallQual has the highest predictive"
+            f" power for sale price. A threshold of 0.3 has been set,"
+            f" so that only moderate and strong relationships are displayed."
+            )
+        st.write("")
+
     st.info(
         f"Scatter plots showing the house attributes that are most strongly"
-        f" correlated to sale price are displayed below. "
-        f"The following variables have a moderate or strong positive "
+        f" correlated to sale price are displayed below. These plots"
+        f" visually demonstrate the variance in data for each attribute."
+        f" The following variables all have a strong positive "
         f"correlation with sale price:\n\n"
         f"* First floor area in square feet\n\n"
         f"* Garage area in square feet\n\n"

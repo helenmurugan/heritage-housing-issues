@@ -29,8 +29,8 @@ def page_sale_price_predictor_body():
         f"The client is interested in predicting"
         f" the potential sale prices"
         f" for properties in Ames, Iowa, and specifically to"
-        f" determine a potential value for the sum of the sales "
-        f" prices of four inherited properties (business requirement 2).\n"
+        f" determine a potential value for the sum of the sale "
+        f" prices of four inherited properties (Business Requirement 2).\n"
     )
 
     st.info(
@@ -44,7 +44,7 @@ def page_sale_price_predictor_body():
     st.write("---")
 
     st.write(
-        f"* Information on categorical feature: "
+        f"* Key for KitchenQual: "
         f"Ex: Excellent, Gd: Good, TA: Typical/Average, Fa: Fair\n\n"
     )
     
@@ -83,7 +83,7 @@ def DrawInputsWidgets():
 
     # load dataset
     df = load_house_prices_data()
-    percentageMin, percentageMax = 0.4, 2.0
+    percentageMin, percentageMax = 0.2, 2.5
 
     # we create input widgets for the 4 best features
     col1, col2, col3, col4 = st.beta_columns(4)

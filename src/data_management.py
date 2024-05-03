@@ -5,8 +5,13 @@ import joblib
 
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
-def load_house_prices_data():
+def load_clean_house_prices_data():
     df = pd.read_csv("outputs/datasets/cleaned/house_prices_records_cleaned.csv")
+    return df
+
+@st.cache(suppress_st_warning=True, allow_output_mutation=True)
+def load_house_prices_data():
+    df = pd.read_csv("outputs/datasets/collection/house_prices_records.csv")
     return df
 
 
