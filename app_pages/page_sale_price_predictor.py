@@ -34,18 +34,22 @@ def page_sale_price_predictor_body():
     )
 
     st.info(
-        f"The price prediction will be based on six "
-        f" features of the property, which can be input"
-        f" using the widgets below. These features were identified by"
-        f" the machine learning model as the most important features "
-        f"to predict sale  price."
+        f"A machine learning model has been developed to predict house"
+        f" sale prices based on six important house features that were"
+        f" used to train the ML model.\n\n"
+        f"To predict the sale price for any house, the features"
+        f" must be input using the data widgets below. When the predictor"
+        f" is run, the data is fed into the ML pipeline that "
+        f"preprocesses the data and predicts the house sale price "
+        f"using an algorithm that has been tuned for optimal performance.\n\n"
+        f"Additionally, "
     )
 
     st.write("---")
 
     st.write(
-        f"* Key for KitchenQual: "
-        f"Ex: Excellent, Gd: Good, TA: Typical/Average, Fa: Fair\n\n"
+        f"Key for KitchenQual categories:\n\n "
+        f"Ex: Excellent \n\n Gd: Good \n\n TA: Typical/Average \n\n Fa: Fair"
     )
     
     st.write("---")
@@ -55,16 +59,14 @@ def page_sale_price_predictor_body():
     X_live = DrawInputsWidgets()
 
 #     # predict on live data
-    if st.button("Run Predictive Analysis"):
+    if st.button("Run Predictor"):
         predict_sale_price(X_live, sale_price_features, sale_price_pipe)
 
     st.write("---")
 
-    st.write("### Price prediction for the clients inherited properties:")
+    st.write("**Sale Price Prediction for Inherited Properties**")
     in_df = load_inherited_house_data()
     in_df = in_df.filter(sale_price_features)
-
-    st.write("* Features of Inherited Homes")
     st.write(in_df)
 
     if st.button("Run Prediction on Inherited Homes"):
@@ -72,10 +74,11 @@ def page_sale_price_predictor_body():
             in_df, sale_price_features, sale_price_pipe)
         total_value = inherited_price_prediction.sum()
         total_value = float(total_value.round(1))
-        total_value = '${:,.2f}'.format(total_value)
+        total_value = '${:,.0f}'.format(total_value)
 
-        st.write(f"* The total value of the inherited homes is estimated"
-                 f" to be:")
+        st.write(
+            f"Sum of inherited property sale price predictions:"
+            )
         st.write(f"**{total_value}**")
 
 

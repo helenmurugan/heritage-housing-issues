@@ -4,21 +4,29 @@ import numpy as np
 import joblib
 
 
+# load clean data for data visualisations
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def load_clean_house_prices_data():
-    df = pd.read_csv("outputs/datasets/cleaned/house_prices_records_cleaned.csv")
+    df = pd.read_csv(
+        "outputs/datasets/cleaned/house_prices_records_cleaned.csv"
+        )
     return df
 
+
+# load raw data to feed sale price predictor
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def load_house_prices_data():
-    df = pd.read_csv("outputs/datasets/collection/house_prices_records.csv")
+    df = pd.read_csv(
+        "outputs/datasets/collection/house_prices_records.csv"
+        )
     return df
 
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def load_inherited_house_data():
     df = pd.read_csv(
-        "inputs/datasets/raw/house-prices/house-price/inherited_houses.csv")
+        "inputs/datasets/raw/house-prices/house-price/inherited_houses.csv"
+        )
     return df
 
 

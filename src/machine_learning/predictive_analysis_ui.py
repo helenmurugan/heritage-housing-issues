@@ -5,28 +5,21 @@ import streamlit as st
 def predict_sale_price(X_live, property_features, sale_price_pipeline):
 
     # From live data filter most imp. features to ensure
-    # correct feature order andto avoid an incorrect prediction.
+    # correct feature order and avoid an incorrect prediction.
     X_live_sale_price = X_live.filter(property_features)
 
     # predict
     sale_price_prediction = sale_price_pipeline.predict(X_live_sale_price)
 
-    statement = (
-        f"Estimated sale value:"
-        )
-
-    # Format the value dispalyed on the page
-    # Formatting code block taken from
-    # https://github.com/t-hullis/milestone-project-heritage-housing-issues/tree/main
+    # Format the value displayed on the page
     if len(sale_price_prediction) == 1:
-        price = float(sale_price_prediction.round(1))
-        price = '${:,.2f}'.format(price)
-
-        st.write(statement)
+        price = float(sale_price_prediction.round(0))
+        price = '${:,.0f}'.format(price)
+        st.write(f"Sale price prediction:")
         st.write(f"**{price}**")
     else:
         st.write(
-            f"* Estimated sale values of inherited real estate:")
+            f"Sales price predictions for inherited properties:")
         st.write(sale_price_prediction)
 
     return sale_price_prediction
