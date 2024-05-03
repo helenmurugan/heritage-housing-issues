@@ -47,9 +47,6 @@ def page_project_hypothesis_body():
         f" value of at least 0.75, based on important features that have been"
         f" identified through machine learning. \n\n"
         f"**Accept hypothesis:** R2 scores of 0.943 and 0.825 have been"
-        f" achieved for the train and test set respectively"
-        f" through ML modelling and evaluation. This indicates that the"
-        f" predictive model is performing well in capturing the underlying"
-        f" patterns"
-        f" in the data and making accurate predictions of sale price.\n\n"
+        f" achieved for the train set and test set respectively"
+        f" through ML modelling and evaluation."
     )

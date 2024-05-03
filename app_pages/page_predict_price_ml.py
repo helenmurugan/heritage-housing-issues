@@ -27,28 +27,33 @@ def page_predict_price_ml_body():
     y_test = pd.read_csv(
         f"outputs/ml_pipeline/predict_sale_price/{vsn}/y_test.csv").squeeze()
 
-#     st.write("### ML Pipeline: Predict Property Sale Price")
-#     # display pipeline training summary conclusions
     st.success(
         f"**ML Model Performance**\n\n"
-        f"A machine learning model was implemented to predict house"
-        f"sale prices in Ames, Iowa, as requested by the client."
-        f"The model was trained using a linear regression algorithm, which"
-        f"was tuned using the best combination of parameters to maximise" 
-        f"model performance.\n\n"
-        f"We use the R2 metric to measure ML model performance. This model"
+        f"A machine learning model has been developed to predict house"
+        f" sale prices in Ames, Iowa. "
+        f"Data cleaning and feature engineering techniques were carried out to"
+        f" prepare the data for modelling. This included encoding the KitchenQual"
+        f" variable from categorical to numerical data type."
+        f" The model utilises the ExtraTreesRegressor algorithm which is a"
+        f" linear regressor. The ML model"
+        f" was tuned using the best combination of parameters to optimise" 
+        f" model performance. These parameters are shown in the ML pipeline below.\n\n"
+        f"The R2 metric has been used to evaluate ML model performance. This model"
         f" achieved R2 scores of 0.945 and 0.825 on the train set and test"
-        f" set respectively."
+        f" set respectively. This indicates that the"
+        f" predictive model is performing well in capturing the underlying"
+        f" patterns"
+        f" in the data and making accurate predictions of sale price."
         )
 
     st.write("---")
 
-#     # show pipeline steps
+    # show pipeline steps
     st.write("### ML pipeline to predict property sale prices.")
     st.code(sale_price_pipe)
     st.write("---")
 
-#     # show best features
+    # show best features
     st.write("### The model was trained on the following features:")
     st.write(X_train.columns.to_list())
     st.write("### Features Importance plot:")
@@ -56,7 +61,7 @@ def page_predict_price_ml_body():
 
     st.write("---")
 
-#     # evaluate performance on both sets
+    # evaluate performance on both sets
     st.write("### Pipeline Performance")
     regression_performance(X_train=X_train, y_train=y_train,
                            X_test=X_test, y_test=y_test,
