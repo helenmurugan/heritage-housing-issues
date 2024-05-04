@@ -4,7 +4,7 @@ Developed by [Helen Murugan](https://github.com/helenmurugan)
 
 ![Image showing app displayed on four different devices](media/hero-image.JPG)
 
-Live Site: [Heritage Housing Sale Price Predictor](link)<br>
+Live Site: [Heritage Housing Sale Price Predictor](https://housing-heritage-issues-559d8585752c.herokuapp.com/)<br>
 Link to GitHub [Repository](https://github.com/helenmurugan/heritage-housing-issues)
 
 ## Contents
@@ -25,7 +25,6 @@ Link to GitHub [Repository](https://github.com/helenmurugan/heritage-housing-iss
     * [PEP8 Compliance Testing](#pep8-compliance-testing)
     * [Manual Testing](#manual-testing)
 * [Unfixed Bugs](#unfixed-bugs)
-* [User Warnings](#user-warnings)
 * [Deployment](#deployment)
     * [Heroku](#heroku)
 * [Main Technologies](#main-technologies)
@@ -240,39 +239,34 @@ This page will satisfy the second business requirement of predicting house sale 
 <img src="media/ml-3.JPG" width="60%">
 </details>
 
-
 ## Testing
 ### PEP8 Compliance Testing 
-The python code from all .py files was passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Code passed with no errors in most cases. However, there was one exceptions where the code could not be split across multiple lines whilst maintaining readability.
+The python code from all .py files was passed through the [CI Python Linter](https://pep8ci.herokuapp.com/). Code passed with no errors in most cases. However, there was one exception where the code could not be split across multiple lines whilst maintaining readability.
 * In page_sale_price_analysis - line 286:
     * pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T
 
 ### Manual Testing
 
 ## Unfixed Bugs
-Encoding kitchen qual using label encoder gave me some problems - would use ordinal encoder next time. plot is missing from scatter plots.
-When evaluating missing data in notebook 3, the og df had to be reloaded in order for missing data to be evaluated. The label encoder must encode the variables in a way that they no longer have missing data.
-
-Smartcorrelatedselection was not performed properly during ML pipeline in NOtebook 5
-
-## User Warnings
-During correlation and PPS analysis, the following warning was generated. A correlation is a measure of the strength of association between two variables. The warning is just a caution that the data may not be sufficient to show strong correlations In this case, the warning was ignored.
-(image of n_splits warning saved on desktop)
-
+There are no known bugs.
 
 ## Deployment
 ### Heroku
+Live Site: [Heritage Housing Sale Price Predictor](https://housing-heritage-issues-559d8585752c.herokuapp.com/)<br>
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+1. Before deployment to Heroku, check that the project contains the following files and information.
+    * setup.sh file containing streamlit configuration requirements.
+    * Procfile containing 'web: sh setup.sh && streamlit run app.py'
+    * runtime.txt file which sets the Python environment to 3.8.17, which will reduce any environment conflicts from development to production.
+2. Log into the Heroku command line interface through the Gitpod terminal to set the stack to Heroku-20 and avoid 'unsupported version of Python' errors during deployment.
+    * Install heroku with this command: 'curl https://cli-assets.heroku.com/install.sh | sh'
+    * Log in to Heroku using your Heroku API as the password.
+    * Use command to set tech stack: 'heroku stack:set heroku-20'
+3. Log in to the Heroku website and create a new app
+    * At the Deploy tab, select GitHub as the deployment method.
+    * Select your GitHub repository name and click Search. When it locates the correct repo, click Connect.
+    * Select Main branch, then Deploy Branch.
+    * Watch the build log for any errors during deployment. Once successfully built, click to Open App.
 
 ## Main Technologies
 * <b>GitHub</b> - a web-based platform and version control system that was utilised for hosting and managing the project repository.
@@ -281,43 +275,41 @@ During correlation and PPS analysis, the following warning was generated. A corr
 * <b>Kaggle</b> - an online platform with open source data, used as the data source for this project.
 
 ## Main Data Analysis and Machine Learning Libraries
-* <b>numpy</b> - a library that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. Numpy was used in the Data Cleaning Notebook to create arrays and masks for filtering data.
-* <b>pandas</b> - a library with easy-to-use data structures and functions. Throuughouit this project, pandas was utilised for working with dataframes, selecting and displaying key features of the data, creating reports and providing insights on data.
-* <b>matplotlib</b> - a library for creating static and interactive visualizations in Python. Matplotlib was used in the Data Visualisations and Feature Engineering Notebooks for displaying plots eg. scatterplots, bar plots and heatmaps.
+* <b>numpy</b> - a library that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. Numpy was used throughout, for example in the Data Cleaning Notebooks to create arrays and masks for filtering data.
+* <b>pandas</b> - a library with easy-to-use data structures and functions. Throughout this project, pandas was utilised for working with dataframes, selecting and displaying key features of the data, creating reports and providing insights on data.
+* <b>matplotlib</b> - a library for creating static and interactive visualisations in Python. Matplotlib was used in the Data Visualisations and Feature Engineering Notebooks for displaying plots eg. scatterplots, bar plots, pie charts and heatmaps.
 * <b>seaborn</b> - a library used for visualising data from pandas dataframes and arrays. Seaborn was utilised in the Feature Engineering Notebook to plot heatmaps for correlation and predictive power score analysis.
 * <b>ydata_profiling</b> - a package for data profiling, that automates and standardises the generation of detailed reports, complete with statistics and visualisations. In Data Cleaning and Feature Engineering Notebooks it was utilised to generate pandas profile reports with tremendous insights on the data.
 * <b>feature_engine</b> - a library that provides a set of tools for feature engineering. It was used in the Feature Engineering Notebook for data transformation such as SmartCorrelatedSelection, OrdinalEncoder and Winsorizer.
-* <b>ppscore</b> - predictive power score is a statistical metric used to quantify the predictive power of one feature with respect to another feature in a dataset. This tool was utilised in the Data Cleaning Notebook to assess correlation levels between house attributes.
-* <b>streamlit</b> - a library used for creating interactive web applications for data science and machione learning projects. Streamlit was utilised for creating the user dashboard.
-* <b>scikit-learn</b> - a library that provides a range algorithms for machine learning models. Scikit-learn was utilised in the Modelling and Evaluation Notebook for grid search cross validation and hyperparameter optimisation.
-* <b>xgboost</b> - eXtreme Gradient Boosting is a library that provides gradient boosting algorithms for machine learning tasks. Xgboost was utilised in the Modelling and Evaluation Notebook for for grid search cross validation.
+* <b>ppscore</b> - predictive power score is a statistical metric used to quantify the predictive power of one feature with respect to another feature in a dataset. This tool was utilised in the Data Cleaning Notebooks to assess correlation levels between house attributes.
+* <b>streamlit</b> - a library used for creating interactive web applications for data science and machine learning projects. Streamlit was utilised for creating the user dashboard.
+* <b>scikit-learn</b> - a library that provides a range algorithms for machine learning models. Scikit-learn was utilised in the Modelling and Evaluation Notebooks for grid search cross validation and hyperparameter optimisation.
+* <b>xgboost</b> - eXtreme Gradient Boosting is a library that provides gradient boosting algorithms for machine learning tasks. Xgboost was utilised in the Modelling and Evaluation Notebooks for for grid search cross validation.
 
 ## Credits 
 
 ### Content
-* The following documentation and websites helped with hyperparameter tuning in Notebook 5.
+* The following documentation and websites were referenced during hyperparameter tuning in the Modelling and Evaluation Notebooks.
     * [GradientBoostingRegressor documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)
     * [RandomForestRegressor documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn-ensemble-randomforestregressor)
-    * [ExtraTreesRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html)
+    * [ExtraTreesRegressor documentation](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html)
     * [Hyperparameter Tuning the Random Forest in Python](https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74)
     * [How Extra trees classification and regression algorithm works](https://pro.arcgis.com/en/pro-app/latest/tool-reference/geoai/how-extra-tree-classification-and-regression-works.htm#:~:text=The%20extra%20trees%20algorithm%2C%20like,selected%20randomly%20for%20each%20tree.)
     * [Ensembles: Gradient boosting, random forests, bagging, voting, stacking](https://scikit-learn.org/stable/modules/ensemble.html#forest)
+* The following documentation was used when developing the streamlit app.
     * [Streamlit documentation](https://docs.streamlit.io/)
 
 ### Code
 * Code Institute custom code was used for data cleaning, feature engineering and model fitting and is referenced in the notebooks.
-
-### Media
-
-* The photos used on the home and sign-up page are from This Open Source site
-* The images used for the gallery page were taken from this other open-source site
-
-## Acknowledgements
 * The following projects were used for inspiration during the development of this app.
     * [Heritage Housing Issues project by URiem](https://github.com/URiem/heritage-housing-PP5/blob/main/README.md)
     * [Heritage Housing Issues project by t-ullis](https://github.com/t-hullis/milestone-project-heritage-housing-issues)
-* CI peers, in particular the slack community on the #project-portfolio-5-predictive-analytics channel who were always there to support each other.
+
+## Acknowledgements
+
+* Code Institute peers and staff, in particular the Slack community on the #project-portfolio-5-predictive-analytics channel who were always there to support each other.
 * Precious Ijege for his expert mentoring.
+* My husband, Arul Murugan, for supporting me during the highs and lows of software development.
 
 
 
