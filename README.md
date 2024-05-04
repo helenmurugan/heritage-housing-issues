@@ -246,6 +246,7 @@ The python code from all .py files was passed through the [CI Python Linter](htt
     * pps_score_stats = pps_matrix_raw.query("ppscore < 1").filter(['ppscore']).describe().T
 
 ### Manual Testing
+The deployed app has been thoroughly tested to ensure data visualisations are properly displayed and sale price predictions run correctly.
 
 ## Unfixed Bugs
 There are no known bugs.
