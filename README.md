@@ -1,11 +1,11 @@
 # Heritage Housing Issues
-Data Correlation and Predictive Modelling Study<br>
+Data Correlation and Machine Learning Study<br>
 Developed by [Helen Murugan](https://github.com/helenmurugan)
 
-[!Image](filepath)
+![Image showing app displayed on four different devices](media/hero-image.JPG)
 
 Live Site: [Heritage Housing Sale Price Predictor](link)<br>
-Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
+Link to GitHub [Repository](https://github.com/helenmurugan/heritage-housing-issues)
 
 ## Contents
 * [Introduction](#introduction)
@@ -36,22 +36,22 @@ Link to [Repository](https://github.com/helenmurugan/heritage-housing-issues)
     * [Acknowledgements](#acknowledgements)
 
 ## Introduction
-Heritage Housing Issues utilises conventional data analysis techniques and machine learning to answer a client's business requirements, relating to property sales in Ames, Iowa, USA. It includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and property sale price.  The project also features a machine learning model that enables the client and other users to predict property sale prices based on various house attributes, through a dedicated web application. The project utilizes a Kaggle real estate dataset as its input. This dataset provides comprehensive data on house attributes and sale price in order to accurately answer a real-world business requirement. 
+Heritage Housing Issues utilises conventional data analysis techniques and a machine learning model to answer a client's business requirements relating to property sales in Ames, Iowa, USA. It includes a comprehensive data correlation study aimed at visualising the relationship between house attributes and property sale price.  The project also features a machine learning model that enables the client and other users to predict property sale prices based on house attributes, through a dedicated web application. The project utilizes a Kaggle real estate dataset as its input. This dataset provides comprehensive data on house attributes and sale price in order to accurately answer a real-world business requirement. 
 
 Heritage Housing Issues is the fifth and final portfolio project for a Code Institute Diploma in Full Stack Software Development with Predictive Analytics specialisation.
 
 ## CRISP-DM Workflow
 The Cross Industry Standard Process for Data Mining (CRISP-DM) was followed during development:
 
-* <b>EPIC 1 - Information gathering and data collection:</b> This stage involves understanding the business requirements (this involves extensive discussions with the client), identifying the data source(s), and collecting necessary data to support the project goals.
+* <b>EPIC 1 - Information gathering and data collection:</b> This stage involves understanding the business requirements (usually through extensive discussions with the client), identifying the data source(s), and collecting necessary data to support the project goals.
 
-* <b>EPIC 2 - Data visualization, cleaning, and preparation:</b> 
+* <b>EPIC 2 - Data visualisation, cleaning, and preparation:</b> Correlation studies are performed to identify issues with the data that require dealing with. Data preparation tasks are performed to handle missing data, outliers, feature engineering transformations, and other preprocessing in preparation for modelling.
 
-* <b>EPIC 3 - Model training, optimization and validation:</b>
+* <b>EPIC 3 - Modelling:</b> Different algorithms and methods are tried and their performance evaluated. The most suitable models are selected and fine tuned using different parameters to optimise performance based on business needs.
 
-* <b>EPIC 4 - Dashboard planning, designing, and development:</b>
+* <b>EPIC 4 - Model Evaluation:</b> Taking into account the business requirements and agreed performance metrics, the models are evaluated. Previous stages of CRISP-DM workflow may be reiterated (eg. data cleaning and feature engineering steps) to achieve best performance possible. The most suitable ML pipeline is selected for deployment.
 
-* <b>EPIC 5 - Dashboard deployment and release.</b>: 
+* <b>EPIC 5 - Dashboard development and deployment:</b> Develop a web application using Streamlit, taking into account business requirements and principles for good user experience. The app is deployed through Heroku cloud hosting service.
  
 
 These steps align neatly with the Agile development process, with the ability to move back and forth between stages/epics as new insights are gained and previous steps are refined. Ultimately, the project aims to deliver a product that satisfies the client's requirements.
@@ -59,7 +59,7 @@ These steps align neatly with the Agile development process, with the ability to
 
 ## Dataset Content
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data).
-* The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
+* The dataset has 1460 rows and represents house records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price. The house attributes included in the raw dataset are listed in the table below.
 
 |Variable|Meaning|Range|
 |:----|:----|:----|
@@ -90,7 +90,7 @@ These steps align neatly with the Agile development process, with the ability to
 
 
 ## Business Requirements
-A client has received an inheritance from a deceased great-grandfather, included in the inheritance are four houses located in Ames, Iowa, USA. Although the client has an excellent understanding of property prices in her home country of Belgium, she fears that basing her estimates for property worth on her current knowledge of the Iowan market might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. The client would like to maximise the sales price for the four houses. A public dataset with house prices for Ames, Iowa, is provided.
+A client has received an inheritance from a deceased great-grandfather, included in the inheritance are four houses located in Ames, Iowa, USA. Although the client has an excellent understanding of property prices in her home country of Belgium, she fears that basing her estimates for property worth on her current knowledge of the Iowan market might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. The client would like to maximise the sale prices for the four houses.
 
 * 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
 * 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
