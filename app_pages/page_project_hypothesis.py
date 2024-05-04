@@ -13,10 +13,11 @@ def page_project_hypothesis_body():
         f"positively correlated to "
         f"sale price as demonstrated by the heatmap analyses and data "
         f"visualisations. \n\n"
-        f"* '1stFlrSF', 'GarageArea' and 'GrLivArea' are "
-        f"strongly positively correlated with SalePrice.\n\n"
-        f"* '2ndFlrSF', 'BedroomAbvGr' and 'TotalBsmtSF' are "
-        f"weakly positively correlated to SalePrice."
+        f"* '1stFlrSF', 'GarageArea', 'GrLivArea' and "
+        f"'TotalBsmtSF' have a "
+        f"strong positive correlation with SalePrice.\n\n"
+        f"* '2ndFlrSF' and 'BedroomAbvGr' have a "
+        f"weak positive correlation with SalePrice."
     )
 
     st.success(

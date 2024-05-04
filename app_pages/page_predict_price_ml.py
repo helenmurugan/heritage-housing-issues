@@ -44,7 +44,11 @@ def page_predict_price_ml_body():
         f" set respectively. This indicates that the"
         f" predictive model is performing well in capturing the underlying"
         f" patterns"
-        f" in the data and making accurate predictions of sale price."
+        f" in the data and making accurate predictions of sale price. "
+        f"The difference between R2 scores achieved on the train and test sets"
+        f" is 0.118, this is considered acceptable and suggests that the model"
+        f" does not significantly overfit or underfit. It generalises well on"
+        f" unseen data."
         )
 
     st.write("---")
